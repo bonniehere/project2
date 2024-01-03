@@ -90,11 +90,18 @@ public class ReserveController {
 		return "/home/reserveNew/stepEndPop";
 	
 	}
-	// 예약 끝      ------------------------------------------------------------------------------------------------
+	// 지도띄우기 메인      ------------------------------------------------------------------------------------------------
 	@RequestMapping(value = "home/reserveNew/map.do", method = RequestMethod.GET)
 	public String map() {
 		
 		return "home/reserveNew/map";
 	
+	}
+	// 지도띄우기 실험용     ------------------------------------------------------------------------------------------------
+	@RequestMapping(value = "home/reserveNew/map2.do", method = RequestMethod.GET)
+	public String map2() {
+			
+		return "home/reserveNew/map2";
+		
 	}
 }
