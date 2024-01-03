@@ -2,10 +2,12 @@
 
 
 
+
 .tit {
     list-style:none;
 }
  
 .floor {
     float: left;
+color: red;
 }

@@ -26,7 +26,7 @@
    <link type="text/css" rel="stylesheet" href="../../resources/css/reservation.css?ver=1">
 	<link type="text/css" rel="stylesheet" href="../../resources/css/floor.css?ver=1">
 	<link type="text/css" rel="stylesheet" href="../../resources/css/intro.css?ver=1">
-	<link type="text/css" rel="stylesheet" href="../../resources/css/map.css?ver=1">
+	<!-- <link type="text/css" rel="stylesheet" href="../../resources/css/map.css?ver=1">      -->
 	<script type="text/javascript" src="../../resources/js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="../../resources/js/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="../../resources/js/design.js"></script>
@@ -37,6 +37,11 @@
 	<script type="text/javascript" src="../../resources/js/fullpage.js"></script>
 	<script type="text/javascript" src="../../resources/js/scrolla.jquery.js"></script>
 	<script type="text/javascript" src="../../resources/js/common.js"></script>
+	
+	<!-- 내가 만든 css -->
+	<link type="text/css" rel="stylesheet" href="../../resources/css/map.css">
+	
+	
 	<script type="text/javascript">
 		if( window.location.href.indexOf('www.cauhs.or.kr') > -1){
 			location.href='https://ch.cauhs.or.kr/group/';
