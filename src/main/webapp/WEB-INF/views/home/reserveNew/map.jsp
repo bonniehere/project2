@@ -26,6 +26,7 @@
    <link type="text/css" rel="stylesheet" href="../../resources/css/reservation.css?ver=1">
 	<link type="text/css" rel="stylesheet" href="../../resources/css/floor.css?ver=1">
 	<link type="text/css" rel="stylesheet" href="../../resources/css/intro.css?ver=1">
+	<link type="text/css" rel="stylesheet" href="../../resources/css/map.css?ver=1">
 	<script type="text/javascript" src="../../resources/js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="../../resources/js/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="../../resources/js/design.js"></script>
@@ -40,7 +41,7 @@
 		if( window.location.href.indexOf('www.cauhs.or.kr') > -1){
 			location.href='https://ch.cauhs.or.kr/group/';
 		}
-		//네이버 발전후원회 검색결과용 강제 링크
+		//네이버 발전후원회 검색결과용 강제 링크!
 		if( window.location.href.indexOf('/home/conts/103008001001000.do') > -1 || window.location.href.indexOf('/home/conts/103008002002000.do') > -1){
 			location.href='https://gh.cauhs.or.kr/fund/';
 		}
@@ -816,7 +817,7 @@
 					 
 					 
 					 
-					 <!-- 내가 가져온 지도 constant 지도-->
+					 <!-- 내가 가져온 지도 constant 지도!!!!!!!!!!!-->
 					 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=발급받은 APP KEY를 사용하세요"></script>
 <script>
