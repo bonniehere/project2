@@ -1419,7 +1419,7 @@
 							<a href="/home/reserve/resvOfflineList.do"><span>처음오신분 간편예약</span></a>
 							
 							<a href="/home/member/userMypageCheck.do"><span>예약조회 및 취소</span></a>
-							<a href="/home/reserveNew/reserveMap.do" style="display: none" id="reserveView"><span>예약 진료과 위치 조회</span></a>
+							<a href="/home/reserveNew/map.do" style="display: none" id="reserveView"><span>예약 진료과 위치 조회</span></a>
 							
 							
 							

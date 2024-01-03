@@ -91,10 +91,10 @@ public class ReserveController {
 	
 	}
 	// 예약 끝      ------------------------------------------------------------------------------------------------
-	@RequestMapping(value = "home/reserveNew/reserveMap.do", method = RequestMethod.GET)
-	public String reserveMap() {
+	@RequestMapping(value = "home/reserveNew/map.do", method = RequestMethod.GET)
+	public String map() {
 		
-		return "home/reserveNew/reserveMap";
+		return "home/reserveNew/map";
 	
 	}
 }
