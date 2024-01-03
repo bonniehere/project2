@@ -41,7 +41,7 @@
 		if( window.location.href.indexOf('www.cauhs.or.kr') > -1){
 			location.href='https://ch.cauhs.or.kr/group/';
 		}
-		//네이버 발전후원회 검색결과용 강제 링크
+		//네이버 발전후원회 검색결과용 강제 링크!
 		if( window.location.href.indexOf('/home/conts/103008001001000.do') > -1 || window.location.href.indexOf('/home/conts/103008002002000.do') > -1){
 			location.href='https://gh.cauhs.or.kr/fund/';
 		}
