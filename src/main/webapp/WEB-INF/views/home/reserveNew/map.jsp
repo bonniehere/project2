@@ -18,28 +18,66 @@
 	<meta property="og:description" content="진료문의 1811-7800 / 환자중심의 디지털 혁신 병원, 수도권 서남부 거점 대학병원">
 	<meta http-equiv="Pragma" content="no-cache">
 	<meta http-equiv="Expires" content="-1">
-	<link rel="shortcut icon" href="../../resources/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="../../resources/favicon.ico" type="image/x-icon">
-	<link type="text/css" rel="stylesheet" href="../../resources/css/default.css?ver=20230220">
-   <link type="text/css" rel="stylesheet" href="../../resources/css/responsive.css?ver=20230905">
-   <link type="text/css" rel="stylesheet" href="../../resources/css/swiper-bundle.min.css?ver=1">
-   <link type="text/css" rel="stylesheet" href="../../resources/css/reservation.css?ver=1">
-	<link type="text/css" rel="stylesheet" href="../../resources/css/floor.css?ver=1">
-	<link type="text/css" rel="stylesheet" href="../../resources/css/intro.css?ver=1">
+	<link rel="shortcut icon" href="../../../../resources/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="../../../../resources/favicon.ico" type="image/x-icon">
+	<link type="text/css" rel="stylesheet" href="../../../../resources/css/default.css?ver=20230220">
+   <link type="text/css" rel="stylesheet" href="../../../../resources/css/responsive.css?ver=20230905">
+   <link type="text/css" rel="stylesheet" href="../../../../resources/css/swiper-bundle.min.css?ver=1">
+   <link type="text/css" rel="stylesheet" href="../../../../resources/css/reservation.css?ver=1">
+	<link type="text/css" rel="stylesheet" href="../../../../resources/css/floor.css?ver=1">
+	<link type="text/css" rel="stylesheet" href="../../../../resources/css/intro.css?ver=1">
 	<!-- <link type="text/css" rel="stylesheet" href="../../resources/css/map.css?ver=1">      -->
-	<script type="text/javascript" src="../../resources/js/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="../../resources/js/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="../../resources/js/design.js"></script>
-	<script type="text/javascript" src="../../resources/js/swiper.min.js"></script>
-	<script type="text/javascript" src="../../resources/js/rolling.js"></script>
-	<script type="text/javascript" src="../../resources/js/scrolla.jquery.js"></script>
-	<script type="text/javascript" src="../../resources/js/scrolloverflow.js"></script>
-	<script type="text/javascript" src="../../resources/js/fullpage.js"></script>
-	<script type="text/javascript" src="../../resources/js/scrolla.jquery.js"></script>
-	<script type="text/javascript" src="../../resources/js/common.js"></script>
+	<script type="text/javascript" src="../../../../resources/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="../../../../resources/js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../../../resources/js/design.js"></script>
+	<script type="text/javascript" src="../../../../resources/js/swiper.min.js"></script>
+	<script type="text/javascript" src="../../../../resources/js/rolling.js"></script>
+	<script type="text/javascript" src="../../../../resources/js/scrolla.jquery.js"></script>
+	<script type="text/javascript" src="../../../../resources/js/scrolloverflow.js"></script>
+	<script type="text/javascript" src="../../../../resources/js/fullpage.js"></script>
+	<script type="text/javascript" src="../../../../resources/js/scrolla.jquery.js"></script>
+	<script type="text/javascript" src="../../../../resources/js/common.js"></script>
 	
-	<!-- 내가 만든 css -->
-	<link type="text/css" rel="stylesheet" href="../../resources/css/map.css">
+	<!-- 내가 만든 css 
+	<link type="text/css" rel="stylesheet" href="../../../../resources/css/map_c.css">
+	이쉑기 적용 안 됨 ㅡㅡ
+	-->
+	
+	
+	<!-- 내부 css 선언  -->
+	<style>
+	.floor{
+		float: left;
+		font-size: 3rem;
+		color: white;
+		margin-top: 7px;
+		margin-left: 13px;
+		margin-right: 13px;
+		display: inline-block;
+	}
+	
+	.clicked{
+		background-color:white;
+		color: #1474d0;
+	}
+	
+	.floortit{
+		text-align: center;
+		
+	}
+	
+	
+	
+	</style>
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	<script type="text/javascript">
@@ -253,6 +291,57 @@
 			objForm.submit();
 		}
 	</script>
+	
+	
+	<!-- 내가 추가한 script -->
+	
+	
+	<script>
+	$(document).ready(function(){	
+	
+    var floor = document.getElementsByClassName("floor");
+
+    function handleClick(event) {
+      console.log(event.target);
+      // console.log(this);
+      // 콘솔창을 보면 둘다 동일한 값이 나온다
+
+      console.log(event.target.classList);
+
+      if (event.target.classList[1] === "clicked") {
+        event.target.classList.remove("clicked");
+      } else {
+        for (var i = 0; i < floor.length; i++) {
+          floor[i].classList.remove("clicked");
+        }
+
+        event.target.classList.add("clicked");
+      }
+    }
+
+    function init() {
+      for (var i = 0; i < floor.length; i++) {
+        floor[i].addEventListener("click", handleClick);
+      }
+    }
+
+    init();
+    
+	})
+    </script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 <link rel="stylesheet" href="https://t1.daumcdn.net/kakaomapweb/place/jscss/roughmap/6af7869e/roughmapLander.css"><script src="//ssl.daumcdn.net/dmaps/map_js_init/v3.js?autoload=false"></script><script src="https://t1.daumcdn.net/mapjsapi/js/main/4.4.14/v3.js"></script></head>
 <body>
@@ -901,7 +990,7 @@ function displayMarker(locPosition, message){
 			</div>
 
 			<div class="map_info">
-				<ul class="tit">
+				<ul class="floortit">
 					<li class="floor">1F</li>
 					<li class="floor">2F</li>
 					<li class="floor">3F</li>
