@@ -26,7 +26,7 @@
    <link type="text/css" rel="stylesheet" href="../../resources/css/reservation.css?ver=1">
 	<link type="text/css" rel="stylesheet" href="../../resources/css/floor.css?ver=1">
 	<link type="text/css" rel="stylesheet" href="../../resources/css/intro.css?ver=1">
-	<!-- <link type="text/css" rel="stylesheet" href="../../resources/css/map.css?ver=1">  -->
+	<!-- <link type="text/css" rel="stylesheet" href="../../resources/css/map.css?ver=1">      -->
 	<script type="text/javascript" src="../../resources/js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="../../resources/js/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="../../resources/js/design.js"></script>
