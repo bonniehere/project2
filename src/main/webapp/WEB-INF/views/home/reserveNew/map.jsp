@@ -48,12 +48,12 @@
 	<style>
 	.floor{
 		float: left;
-		font-size: 3rem;
 		color: white;
-		margin-top: 7px;
+		margin-bottom: 20px;
 		margin-left: 13px;
 		margin-right: 13px;
 		display: inline-block;
+		font-size: 150%;
 	}
 	
 	.clicked{
@@ -63,9 +63,13 @@
 	
 	.floortit{
 		text-align: center;
-		
+		margin-top : 20px;
 	}
-	
+	.map_info{
+		display : flex;
+		justify-content: center;
+		align-items: center;
+	}
 	
 	
 	</style>
@@ -293,42 +297,7 @@
 	</script>
 	
 	
-	<!-- 내가 추가한 script -->
 	
-	
-	<script>
-	$(document).ready(function(){	
-	
-    var floor = document.getElementsByClassName("floor");
-
-    function handleClick(event) {
-      console.log(event.target);
-      // console.log(this);
-      // 콘솔창을 보면 둘다 동일한 값이 나온다
-
-      console.log(event.target.classList);
-
-      if (event.target.classList[1] === "clicked") {
-        event.target.classList.remove("clicked");
-      } else {
-        for (var i = 0; i < floor.length; i++) {
-          floor[i].classList.remove("clicked");
-        }
-
-        event.target.classList.add("clicked");
-      }
-    }
-
-    function init() {
-      for (var i = 0; i < floor.length; i++) {
-        floor[i].addEventListener("click", handleClick);
-      }
-    }
-
-    init();
-    
-	})
-    </script>
 	
 	
 	
@@ -808,8 +777,7 @@
 	<div class="inner">
 
 		<div class="location">
-			<div class="map_area">
-				<div class="map" id="map">
+			
 				
 					<!-- 1. 지도 노드 -->
 					<!--
@@ -912,7 +880,46 @@
 					 
 					 
 					 <!-- 내가 가져온 지도 constant 지도!!!!!!!!!!!-->
+<!-- 내가 추가한 script -->
+	
+	
+	<script>
+	$(document).ready(function(){	
+	
+    var floor = document.getElementsByClassName("floor");
+
+    function handleClick(event) {
+      console.log(event.target);
+      // console.log(this);
+      // 콘솔창을 보면 둘다 동일한 값이 나온다
+
+      console.log(event.target.classList);
+
+      if (event.target.classList[1] === "clicked") {
+        event.target.classList.remove("clicked");
+      } else {
+        for (var i = 0; i < floor.length; i++) {
+          floor[i].classList.remove("clicked");
+        }
+
+        event.target.classList.add("clicked");
+      }
+    }
+
+    function init() {
+      for (var i = 0; i < floor.length; i++) {
+        floor[i].addEventListener("click", handleClick);
+      }
+    }
+
+    init();
+    
+	})
+    </script>
 					 
+					 
+<div class="map_area">
+				<div class="map" id="map" style="width:100%;height:350px;">					 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4964815528aa3bf5334721911ccdc6964964815528aa3bf5334721911ccdc696"></script>
 	<script>
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -928,38 +935,42 @@
 			// 마우스 휠과 모바일 터치를 이용한 지도 확대, 축소를 막는다
 			map.setZoomable(false);  
 			
-			// 커스텀 오버레이에 표시할 내용입니다     
-			// HTML 문자열 또는 Dom Element 입니다 
-			var content = '<div class ="label"><span class="left"></span><span class="center">치과</span><span class="right"></span></div>';
-	
-			// 커스텀 오버레이가 표시될 위치입니다 
-			var position = new kakao.maps.LatLng(35.54254097826589, 129.3357961417249);  
-	
-			// 커스텀 오버레이를 생성합니다
-			var customOverlay = new kakao.maps.CustomOverlay({
-			    position: position,
-			    content: content   
-			});
-	
-			// 커스텀 오버레이를 지도에 표시합니다
-			customOverlay.setMap(map);
 			
-			// 커스텀 오버레이에 표시할 내용입니다     
-			// HTML 문자열 또는 Dom Element 입니다 
-			var content = '<div class ="label"><span class="left"></span><span class="center">치과2</span><span class="right"></span></div>';
-	
-			// 커스텀 오버레이가 표시될 위치입니다 
-			var position = new kakao.maps.LatLng(35.5424227812333, 129.33724520256774);  
-	
-			// 커스텀 오버레이를 생성합니다
-			var customOverlay = new kakao.maps.CustomOverlay({
-			    position: position,
-			    content: content   
-			});
-	
-			// 커스텀 오버레이를 지도에 표시합니다
-			customOverlay.setMap(map);
+			function fn_gogo(i){
+				if(i==1){
+					// 커스텀 오버레이에 표시할 내용입니다     
+					// HTML 문자열 또는 Dom Element 입니다 
+					var content = '<div class ="label"><span class="left"></span><span class="center">치과</span><span class="right"></span></div>';
+		
+					// 커스텀 오버레이가 표시될 위치입니다 
+					var position = new kakao.maps.LatLng(35.54254097826589, 129.3357961417249);  
 			
+					// 커스텀 오버레이를 생성합니다
+					var customOverlay = new kakao.maps.CustomOverlay({
+					    position: position,
+					    content: content   
+					});
+			
+					// 커스텀 오버레이를 지도에 표시합니다
+					customOverlay.setMap(map);
+					
+					// 커스텀 오버레이에 표시할 내용입니다     
+					// HTML 문자열 또는 Dom Element 입니다 
+					var content = '<div class ="label"><span class="left"></span><span class="center">치과2</span><span class="right"></span></div>';
+			
+					// 커스텀 오버레이가 표시될 위치입니다 
+					var position = new kakao.maps.LatLng(35.5424227812333, 129.33724520256774);  
+			
+					// 커스텀 오버레이를 생성합니다
+					var customOverlay = new kakao.maps.CustomOverlay({
+					    position: position,
+					    content: content
+					});
+			
+					// 커스텀 오버레이를 지도에 표시합니다
+					customOverlay.setMap(map);
+				}
+			}//gogo()함수 종료
 			var hsp = new kakao.maps.LatLng(35.54297, 129.33657);
 			//위치 정보 가져오기
 			var lat;
@@ -1019,13 +1030,13 @@
 					 
 					 
 					 
-				</div>
+	</div>
 
-			</div>
+</div>
 
 			<div class="map_info">
 				<ul class="floortit">
-					<li class="floor">1F</li>
+					<li class="floor"><a href="javascript:void(0);" onclick="javascript:fn_gogo(1);" class="btn_pop_sty1">1F</a></li>
 					<li class="floor">2F</li>
 					<li class="floor">3F</li>
 					<li class="floor">4F</li>
@@ -1033,8 +1044,17 @@
 					<li class="floor">6F</li>
 					<li class="floor">7F</li>
 				</ul>
-				<a href="http://kko.to/H-uFIK0Px" target="_blank">Kakao 지도 바로가기</a>
+			<!-- 	<a href="http://kko.to/H-uFIK0Px" target="_blank">Kakao 지도 바로가기</a> -->
 			</div>
+			<div style="float:right;"><a href="/home/reserveNew/floor.do">전층안내</a></div>
+			<script type="text/javascript">
+				function fn_go(i){
+					if(i==1){
+						$(".label1F.2").text("<span class="left"></span><span class="center">치과2222222222</span><span class="right"></span>");
+					}
+				}
+			</script>
+			
 
 			<div class="ssgap"></div>
                 

@@ -29,7 +29,7 @@
 		
 		// 커스텀 오버레이에 표시할 내용입니다     
 		// HTML 문자열 또는 Dom Element 입니다 
-		var content = '<div class ="label"><span class="left"></span><span class="center">치과</span><span class="right"></span></div>';
+		var content = '<div class ="label"><span class="left"></span><span class="center" id="">치과</span><span class="right"></span></div>';
 
 		// 커스텀 오버레이가 표시될 위치입니다 
 		var position = new kakao.maps.LatLng(35.54254097826589, 129.3357961417249);  
