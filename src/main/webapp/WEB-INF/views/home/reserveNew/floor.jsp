@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<head>
 <meta charset="utf-8">
 <meta http-equiv="Content-Script-Type" content="text/javascript">
 <meta http-equiv="Content-Style-Type" content="text/css">
@@ -105,56 +104,152 @@
 </script>  
 <script type="text/javascript">
 </script>-->
+
+<style>
+
+h1{
+	text-align: center;
+	color: #369;
+}
+
+
+/*테이블 css */
+table.type03 {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+  border-top: 0px solid #ccc;
+  border-left: 3px solid #369;
+  margin : 20px 10px;
+ 
+}
+
+table.type03 th {
+  width: 147px;
+  padding: 10px 10px 10px 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #153d73;
+  border-right: 0px solid #ccc;
+  border-bottom: 0px solid #ccc;
+  font-size: 150%;
+  text-align: center;
+  vertical-align : middle;
+
+}
+
+table.type03 td {
+	width: 600px;
+	height: 90px;
+	table-layout: fixed;
+	padding: 10px;
+	vertical-align: top;
+	border-right: 0px solid #ccc;
+	border-bottom: 0px solid #ccc;
+	font-size: 140%;
+	text-align: center;
+	vertical-align : middle;
+	font-weight: 700;
+}
+
+#table{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.type03{
+	margin: auto;
+
+}
+
+.type03 tr:hover {
+background-color: #eeeeee;
+}
+
+/*여기는 밑에 프리뷰 버튼 css*/
+.prev{
+	width: 150px;
+	height: 46px;
+	float: left;
+	background-color: #1474d0;
+	border-radius: 20px;
+	text-align: center;
+	display : flex;
+	justify-content : center;
+	align-items : center;
+	
+}
+
+a{
+	text-decoration-line: none;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+
+
+</style>
+
+
 </head>
 </head>
 <body>
-<table border="1">
 
+
+<h1>전층 안내</h1>
+
+<div id="table">
+<table class="type03" id="type03">
+<!-- 
 <tr>
-<td>층</td>
-<td>층별 안내</td>
+<th id="point">층</th>
+<td id="point">층별 안내</td>
+</tr>
+ -->
+<tr>
+<th>7F</th>
+<td>치과교정과, 교수연구실, 의학정보도서관A/B</td>
 </tr>
 
 <tr>
-<td>7F</td>
-<td>치과교정과, 교수연구실, 의학정보도서관A, 의학정보도서관B</td>
-</tr>
-
-<tr>
-<td>6F</td>
+<th>6F</th>
 <td>분만실, 신생아실, 신생아중환자실, 산모치료실, 의료정보팀, 옥상정원</td>
 </tr>
 
 <tr>
-<td>5F</td>
+<th>5F</th>
 <td>후원자 라운지, 직원식당, 물류공급파트, 임원실</td>
 </tr>
 
 <tr>
-<td>4F</td>
+<th>4F</th>
 <td>수술실, 마취회복실, 당일수술센터, 기관지내시경실, 내과계 중환자실, 외과계 중환자실</td>
 </tr>
 
 <tr>
-<td>3F</td>
-<td>소아청소년과, 재활의학과, 병리과</td>
+<th>3F</th>
+<td>소아청소년과, 재활의학과, 병리과, 가정의학과, 심장뇌혈관병원</td>
 </tr>
 
 <tr>
-<td>2F</td>
-<td>암병원, 소화기센터, 호흡기알레르기센터, 가정의학과, 감염내과, 내분비내과, 성형외과, 신장내과, 안과, 외과, 정신건강의학과, 치과, 피부과, 주사실</td>
+<th>2F</th>
+<td>암병원, 소화기센터, 호흡기알레르기센터, 감염내과, 내분비내과, 성형외과, 신장내과, 안과, 외과, 정신건강의학과, 피부과</td>
 </tr>
 
 <tr>
-<td>1F</td>
-<td>심장뇌혈관병원, 관절센터, 척추센터, 비뇨의학과, 산부인과, 이비인후과, 진료협력센터•국제진료, 원무통합창구, 채혈•채뇨실, 외래약국, 통증클리닉, 신경기능검사센터, 심장뇌혈관병원검사센터</td>
+<th>1F</th>
+<td>치과, 관절센터, 척추센터, 비뇨의학과, 산부인과, 이비인후과, 외래약국</td>
 </tr>
 
 
 </table>
+</div>
 
+<div class="prev" Onclick="location.href ='http://localhost:8080/home/reserveNew/map.do'"><a >PREV</a></div>
 
-<div style="float:left;"><a href="/home/reserveNew/map.do">PREV</a></div>
 
 
 
