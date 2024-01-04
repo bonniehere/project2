@@ -249,7 +249,7 @@ a{
 </table>
 </div>
 
-<div class="prev"><a href="/home/reserveNew/map.do">PREV</a></div>
+<div class="prev"><a href="/home/home.do">홈으로</a></div>
 
 
 
