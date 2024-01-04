@@ -940,41 +940,183 @@
 			// 마우스 휠과 모바일 터치를 이용한 지도 확대, 축소를 막는다
 			map.setZoomable(false);  
 			
+			var flag=false;
+			var content = [];
+			var position = [];
+			var customOverlay = [];
+			var positionlat = [35.54253208872906,35.542502954568036,35.54247505618329,35.54243055026881,35.54298183050119,35.54295746588735,35.54291161807004,35.542878734382406,35.54344992142927,35.54342683767449,35.543391596782385,35.54337081634955];
+			var positionlon = [129.33590612990636,129.33624704734848,129.33664036722297,129.33719306129316,129.3359467400585,129.3362740169526,129.33677982083077,129.33719780321204,129.336202865509,129.33646403300148,129.33688746215125,129.33714593990086];
+			var contentNm1 = ["관절센터","척추센터","비뇨의학과","원무과","이비인후과","엘리베이터","엘리베이터","핵의학과","편의점","편의시설","린넨실","병동약국"];
+			var contentNm2 = ["암병원","소화기센터","가정의학과","감염내과","내분비내과","엘리베이터","엘리베이터","외과","치과","피부과","정신건강의학과","내시경실"];
+			var contentNm3 = ["소아청소년과","재활의학과","병리과","진단검사의학과","간호본부","엘리베이터","엘리베이터","주사실","호흡기알레르기센터","방사선종양학과","의료기기용품점","의용공학실"];
+			var contentNm4 = ["치과교정과","수술실","마취회복실","산모치료실","신생아실","엘리베이터","엘리베이터","당일수술센터","산부인과","영상의학과","안과","외래약국"];
+			var contentNm5 = ["501호실","502호실","503호실","504호실","505호실","엘리베이터","엘리베이터","506호실","507호실","508호실","509호실","510호실"];
+			var contentNm6 = ["601호실","602호실","603호실","604호실","605호실","엘리베이터","엘리베이터","606호실","607호실","608호실","609호실","610호실"];
+			var contentNm7 = ["701호실","702호실","703호실","704호실","705호실","엘리베이터","엘리베이터","706호실","707호실","708호실","709호실","710호실"];
 			
 			function fn_gogo(i){
+				if(flag){
+					customOverlay[0].setMap(null);
+					customOverlay[1].setMap(null);
+					customOverlay[2].setMap(null);
+					customOverlay[3].setMap(null);
+					customOverlay[4].setMap(null);
+					customOverlay[5].setMap(null);
+					customOverlay[6].setMap(null);
+					customOverlay[7].setMap(null);
+					customOverlay[8].setMap(null);
+					customOverlay[9].setMap(null);
+					customOverlay[10].setMap(null);
+					customOverlay[11].setMap(null);
+				}
 				if(i==1){
+					for(j=0; j < contentNm1.length; j++){
 					// 커스텀 오버레이에 표시할 내용입니다     
 					// HTML 문자열 또는 Dom Element 입니다 
-					var content = '<div class ="label"><span class="left"></span><span class="center">치과</span><span class="right"></span></div>';
+					content[j] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm1[j]+'</span><span class="right"></span></div>';
 		
 					// 커스텀 오버레이가 표시될 위치입니다 
-					var position = new kakao.maps.LatLng(35.54254097826589, 129.3357961417249);  
+					position[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
 			
 					// 커스텀 오버레이를 생성합니다
-					var customOverlay = new kakao.maps.CustomOverlay({
-					    position: position,
-					    content: content   
+					customOverlay[j] = new kakao.maps.CustomOverlay({
+					    position: position[j],
+					    content: content[j]   
 					});
 			
 					// 커스텀 오버레이를 지도에 표시합니다
-					customOverlay.setMap(map);
-					
+					customOverlay[j].setMap(map);
+					}
+					// ------------------
+					flag = true;
+				}
+				if(i==2){
+					for(j=0; j < contentNm2.length; j++){
 					// 커스텀 오버레이에 표시할 내용입니다     
 					// HTML 문자열 또는 Dom Element 입니다 
-					var content = '<div class ="label"><span class="left"></span><span class="center">치과2</span><span class="right"></span></div>';
-			
+					content[j] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm2[j]+'</span><span class="right"></span></div>';
+		
 					// 커스텀 오버레이가 표시될 위치입니다 
-					var position = new kakao.maps.LatLng(35.5424227812333, 129.33724520256774);  
+					position[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
 			
 					// 커스텀 오버레이를 생성합니다
-					var customOverlay = new kakao.maps.CustomOverlay({
-					    position: position,
-					    content: content
+					customOverlay[j] = new kakao.maps.CustomOverlay({
+					    position: position[j],
+					    content: content[j]   
 					});
 			
 					// 커스텀 오버레이를 지도에 표시합니다
-					customOverlay.setMap(map);
+					customOverlay[j].setMap(map);
+					}
+					// ------------------
+					flag = true;
 				}
+				if(i==3){
+					for(j=0; j < contentNm3.length; j++){
+					// 커스텀 오버레이에 표시할 내용입니다     
+					// HTML 문자열 또는 Dom Element 입니다 
+					content[j] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm3[j]+'</span><span class="right"></span></div>';
+		
+					// 커스텀 오버레이가 표시될 위치입니다 
+					position[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
+			
+					// 커스텀 오버레이를 생성합니다
+					customOverlay[j] = new kakao.maps.CustomOverlay({
+					    position: position[j],
+					    content: content[j]   
+					});
+			
+					// 커스텀 오버레이를 지도에 표시합니다
+					customOverlay[j].setMap(map);
+					}
+					// ------------------
+					flag = true;
+				}
+				if(i==4){
+					for(j=0; j < contentNm4.length; j++){
+					// 커스텀 오버레이에 표시할 내용입니다     
+					// HTML 문자열 또는 Dom Element 입니다 
+					content[j] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm4[j]+'</span><span class="right"></span></div>';
+		
+					// 커스텀 오버레이가 표시될 위치입니다 
+					position[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
+			
+					// 커스텀 오버레이를 생성합니다
+					customOverlay[j] = new kakao.maps.CustomOverlay({
+					    position: position[j],
+					    content: content[j]   
+					});
+			
+					// 커스텀 오버레이를 지도에 표시합니다
+					customOverlay[j].setMap(map);
+					}
+					// ------------------
+					flag = true;
+				}
+				if(i==5){
+					for(j=0; j < contentNm5.length; j++){
+					// 커스텀 오버레이에 표시할 내용입니다     
+					// HTML 문자열 또는 Dom Element 입니다 
+					content[j] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm5[j]+'</span><span class="right"></span></div>';
+		
+					// 커스텀 오버레이가 표시될 위치입니다 
+					position[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
+			
+					// 커스텀 오버레이를 생성합니다
+					customOverlay[j] = new kakao.maps.CustomOverlay({
+					    position: position[j],
+					    content: content[j]   
+					});
+			
+					// 커스텀 오버레이를 지도에 표시합니다
+					customOverlay[j].setMap(map);
+					}
+					// ------------------
+					flag = true;
+				}
+				if(i==6){
+					for(j=0; j < contentNm6.length; j++){
+					// 커스텀 오버레이에 표시할 내용입니다     
+					// HTML 문자열 또는 Dom Element 입니다 
+					content[j] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm6[j]+'</span><span class="right"></span></div>';
+		
+					// 커스텀 오버레이가 표시될 위치입니다 
+					position[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
+			
+					// 커스텀 오버레이를 생성합니다
+					customOverlay[j] = new kakao.maps.CustomOverlay({
+					    position: position[j],
+					    content: content[j]   
+					});
+			
+					// 커스텀 오버레이를 지도에 표시합니다
+					customOverlay[j].setMap(map);
+					}
+					// ------------------
+					flag = true;
+				}
+				if(i==7){
+					for(j=0; j < contentNm7.length; j++){
+					// 커스텀 오버레이에 표시할 내용입니다     
+					// HTML 문자열 또는 Dom Element 입니다 
+					content[j] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm7[j]+'</span><span class="right"></span></div>';
+		
+					// 커스텀 오버레이가 표시될 위치입니다 
+					position[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
+			
+					// 커스텀 오버레이를 생성합니다
+					customOverlay[j] = new kakao.maps.CustomOverlay({
+					    position: position[j],
+					    content: content[j]   
+					});
+			
+					// 커스텀 오버레이를 지도에 표시합니다
+					customOverlay[j].setMap(map);
+					}
+					// ------------------
+					flag = true;
+				}
+				
 			}//gogo()함수 종료
 			var hsp = new kakao.maps.LatLng(35.54297, 129.33657);
 			//위치 정보 가져오기
@@ -1042,12 +1184,12 @@
 			<div class="map_info">
 				<ul class="floortit">
 					<li class="floor"><a href="javascript:void(0);" onclick="javascript:fn_gogo(1);" class="btn_pop_sty1">1F</a></li>
-					<li class="floor">2F</li>
-					<li class="floor">3F</li>
-					<li class="floor">4F</li>
-					<li class="floor">5F</li>
-					<li class="floor">6F</li>
-					<li class="floor">7F</li>
+					<li class="floor"><a href="javascript:void(0);" onclick="javascript:fn_gogo(2);" class="btn_pop_sty1">2F</a></li>
+					<li class="floor"><a href="javascript:void(0);" onclick="javascript:fn_gogo(3);" class="btn_pop_sty1">3F</a></li>
+					<li class="floor"><a href="javascript:void(0);" onclick="javascript:fn_gogo(4);" class="btn_pop_sty1">4F</a></li>
+					<li class="floor"><a href="javascript:void(0);" onclick="javascript:fn_gogo(5);" class="btn_pop_sty1">5F</a></li>
+					<li class="floor"><a href="javascript:void(0);" onclick="javascript:fn_gogo(6);" class="btn_pop_sty1">6F</a></li>
+					<li class="floor"><a href="javascript:void(0);" onclick="javascript:fn_gogo(7);" class="btn_pop_sty1">7F</a></li>
 				</ul>
 			<!-- 	<a href="http://kko.to/H-uFIK0Px" target="_blank">Kakao 지도 바로가기</a> -->
 			</div>

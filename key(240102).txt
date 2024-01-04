@@ -2,6 +2,8 @@ https://github.com/NARITA07/constant02.git
 
 tnsdnr9220@naver.com
 
-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
+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
 
-231214
+ngrok config add-authtoken 2aNM8CQlR17Wn4dI11jQvGPGOuH_4QAo6wdSTJg8cQ4hQ4pXV
+
+ngrok http 8080
