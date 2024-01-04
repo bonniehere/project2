@@ -132,7 +132,7 @@ table.type03 th {
   color: #153d73;
   border-right: 0px solid #ccc;
   border-bottom: 0px solid #ccc;
-  font-size: 150%;
+  font-size: 120%;
   text-align: center;
   vertical-align : middle;
 
@@ -146,7 +146,7 @@ table.type03 td {
 	vertical-align: top;
 	border-right: 0px solid #ccc;
 	border-bottom: 0px solid #ccc;
-	font-size: 140%;
+	font-size: 100%;
 	text-align: center;
 	vertical-align : middle;
 	font-weight: 700;
@@ -170,8 +170,8 @@ background-color: #eeeeee;
 
 /*여기는 밑에 프리뷰 버튼 css*/
 .prev{
-	width: 150px;
-	height: 46px;
+	width: 80px;
+	height: 40px;
 	float: left;
 	background-color: #1474d0;
 	border-radius: 20px;
@@ -185,7 +185,7 @@ background-color: #eeeeee;
 a{
 	text-decoration-line: none;
 	color: white;
-	font-size: 20px;
+	font-size: 10px;
 	font-weight: bold;
 }
 
@@ -249,7 +249,7 @@ a{
 </div>
 
 <div class="prev" Onclick="location.href ='http://localhost:8080/home/reserveNew/map.do'"><a >PREV</a></div>
-
+<div style="float:right;"><a href="/home/reserveNew/floor.do">전층안내</a></div>
 
 
 
