@@ -75,6 +75,29 @@
 		justify-content: center;
 		align-items: center;
 	}
+	
+	/*여기는 밑에 프리뷰 버튼 css*/
+	.allfloor{
+		width: 80px;
+		height: 40px;
+		float: right;
+		background-color: #1474d0;
+		border-radius: 20px;
+		text-align: center;
+		display : flex;
+		justify-content : center;
+		align-items : center;
+		margin-top: 8px;	
+		
+	}
+	
+	a{
+		text-decoration-line: none;
+		color: white;
+		font-size: 10px;
+		font-weight: bold;
+		margin: 10px 17px 10px 17px;
+	}
 
 	
 	</style>
@@ -1193,7 +1216,7 @@
 				</ul>
 			<!-- 	<a href="http://kko.to/H-uFIK0Px" target="_blank">Kakao 지도 바로가기</a> -->
 			</div>
-			<div style="float:right;"><a href="/home/reserveNew/floor.do">전층안내</a></div>
+			<div class="allfloor"><a href="/home/reserveNew/floor.do">전층안내</a></div>
 			<script type="text/javascript">
 				function fn_go(i){
 					if(i==1){
