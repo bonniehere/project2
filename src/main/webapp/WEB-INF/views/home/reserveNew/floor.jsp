@@ -187,6 +187,7 @@ a{
 	color: white;
 	font-size: 10px;
 	font-weight: bold;
+	margin: 10px 17px 10px 17px;
 }
 
 
