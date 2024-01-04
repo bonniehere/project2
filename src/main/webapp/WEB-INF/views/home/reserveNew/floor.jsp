@@ -248,8 +248,7 @@ a{
 </table>
 </div>
 
-<div class="prev" Onclick="location.href ='http://localhost:8080/home/reserveNew/map.do'"><a >PREV</a></div>
-<div style="float:right;"><a href="/home/reserveNew/floor.do">전층안내</a></div>
+<div class="prev"><a href="/home/reserveNew/map.do">PREV</a></div>
 
 
 
