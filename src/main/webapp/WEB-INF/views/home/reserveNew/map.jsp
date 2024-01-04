@@ -91,7 +91,7 @@
 		
 	}
 	
-	a{
+	#af{
 		text-decoration-line: none;
 		color: white;
 		font-size: 10px;
@@ -1216,7 +1216,7 @@
 				</ul>
 			<!-- 	<a href="http://kko.to/H-uFIK0Px" target="_blank">Kakao 지도 바로가기</a> -->
 			</div>
-			<div class="allfloor"><a href="/home/reserveNew/floor.do">전층안내</a></div>
+			<div class="allfloor"><a id="af" href="/home/reserveNew/floor.do">전층안내</a></div>
 			<script type="text/javascript">
 				function fn_go(i){
 					if(i==1){
