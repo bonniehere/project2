@@ -154,7 +154,7 @@
 </table>
 
 
-<button>Prev</button>
+<div style="float:left;"><a href="/home/reserveNew/map.do">PREV</a></div>
 
 
 

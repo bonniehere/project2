@@ -45,7 +45,12 @@
 	
 	
 	<!-- 내부 css 선언  -->
-	<style>
+	<style>	
+	.btn_pop_sty1{
+		color:white;
+	}
+
+
 	.floor{
 		float: left;
 		color: white;
@@ -70,7 +75,7 @@
 		justify-content: center;
 		align-items: center;
 	}
-	
+
 	
 	</style>
 	
