@@ -1419,7 +1419,7 @@
 							<a href="/home/reserve/resvOfflineList.do"><span>처음오신분 간편예약</span></a>
 							
 							<a href="/home/member/userMypageCheck.do"><span>예약조회 및 취소</span></a>
-							<a href="/home/reserveNew/map.do" style="display: none" id="reserveView"><span>예약 진료과 위치 조회</span></a>
+							<a href="/home/reserveNew/map.do" style="display: none" id="reserveView"><span>병원 내부 실시간 지도</span></a>
 							
 							
 							
@@ -1460,7 +1460,7 @@
 						<h2 class="tit">병원안내</h2>
 						<div class="link_btn_wrap">
 							<a href="/home/conts/101001000000000.do"><span>오시는 길</span></a>
-							<a href="/home/introduce/floor0Pop.do" target="_blank"><span>층별안내</span></a>
+							<a href="/home/reserveNew/homeFloor.do"><span>층별안내</span></a>
 							<a href="https://vy.vics.kr/cert.service" target="_blank"><span>온라인 제증명</span></a>
 						</div>
 						<!-- <div class="ico_btn_wrap">

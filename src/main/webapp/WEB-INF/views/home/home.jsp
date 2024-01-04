@@ -1038,7 +1038,7 @@
 </li>
 <li><a href="javascript:fn_goMenu('/home/conts/101004000000000.do');">전화번호안내</a>
 </li>
-<li><a href="javascript:fn_goMenu('/home/introduce/floor0Pop.do');">층별안내</a>
+<li><a href="javascript:fn_goMenu('/home/reserveNew/homeFloor.do');">층별안내</a>
 </li>
 <li><a href="javascript:fn_goMenu('/home/conts/101006010000000.do');" class="plus">진료비안내</a>
 <ul class="depth3" style="display:none;">
@@ -1424,7 +1424,7 @@
 						<h2 class="tit">병원안내</h2>
 						<div class="link_btn_wrap">
 							<a href="/home/conts/101001000000000.do"><span>오시는 길</span></a>
-							<a href="/home/introduce/floor0Pop.do" target="_blank"><span>층별안내</span></a>
+							<a href="/home/reserveNew/homeFloor.do"><span>층별안내</span></a>
 							<a href="https://vy.vics.kr/cert.service" target="_blank"><span>온라인 제증명</span></a>
 						</div>
 						<!-- <div class="ico_btn_wrap">

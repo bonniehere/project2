@@ -91,7 +91,13 @@ public class ReserveController {
 	
 	}
 	// 지도띄우기 메인      ------------------------------------------------------------------------------------------------
-	@RequestMapping(value = "home/reserveNew/floor.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/home/reserveNew/homeFloor.do", method = RequestMethod.GET)
+	public String homeFloor() {
+		
+		return "home/reserveNew/homeFloor";
+	
+	}
+	@RequestMapping(value = "/home/reserveNew/floor.do", method = RequestMethod.GET)
 	public String floor() {
 		
 		return "home/reserveNew/floor";
