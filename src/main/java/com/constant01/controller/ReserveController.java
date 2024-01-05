@@ -109,7 +109,7 @@ public class ReserveController {
 		return "home/reserveNew/map";
 	
 	}
-	// 예약한 과 지도 띄우기     ------------------------------------------------------------------------------------------------
+	// 예약한 과 지도 띄우기 !!!    ------------------------------------------------------------------------------------------------
 	@RequestMapping(value = "home/reserveNew/map2.do", method = RequestMethod.POST)
 	public String map2() {
 			
