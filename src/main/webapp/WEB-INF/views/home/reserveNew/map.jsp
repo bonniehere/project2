@@ -769,7 +769,7 @@
 		<!--sub_container_wrapper-->
 		<section class="title fix">
             <div class="inner fix">
-            	<h2>오시는 길</h2>
+            	<h2>병원 내부 실시간 지도</h2>
 <a href="javascript:fn_goMenu('/home/conts/101002003000000.do');" class="title_next">Next</a>
 
             </div>
@@ -954,7 +954,7 @@
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 			    mapOption = { 
 			        center: new kakao.maps.LatLng(35.542990773269565, 129.33653130703433), // 지도의 중심좌표
-			        level: 2 // 지도의 확대 레벨 
+			        level: 4 // 지도의 확대 레벨 
 			    }; 
 			
 			var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -964,181 +964,181 @@
 			// 마우스 휠과 모바일 터치를 이용한 지도 확대, 축소를 막는다
 			map.setZoomable(false);  
 			
-			var flag=false;
-			var content = [];
-			var position = [];
-			var customOverlay = [];
+			var flag1=false;
+			var hspcontent = [];
+			var hspposition = [];
+			var hspcustomOverlay = [];
 			var positionlat = [35.54253208872906,35.542502954568036,35.54247505618329,35.54243055026881,35.54298183050119,35.54295746588735,35.54291161807004,35.542878734382406,35.54344992142927,35.54342683767449,35.543391596782385,35.54337081634955];
 			var positionlon = [129.33590612990636,129.33624704734848,129.33664036722297,129.33719306129316,129.3359467400585,129.3362740169526,129.33677982083077,129.33719780321204,129.336202865509,129.33646403300148,129.33688746215125,129.33714593990086];
 			var contentNm1 = ["관절센터","척추센터","비뇨의학과","원무과","이비인후과","엘리베이터","엘리베이터","핵의학과","편의점","편의시설","응급의학과","병동약국"];
 			var contentNm2 = ["암병원","소화기센터","가정의학과","감염내과","내분비내과","엘리베이터","엘리베이터","외과","치과","피부과","정신건강의학과","내시경실"];
 			var contentNm3 = ["소아청소년과","재활의학과","병리과","진단검사의학과","간호본부","엘리베이터","엘리베이터","주사실","호흡기알레르기내과","방사선종양학과","의료기기용품점","의용공학실"];
 			var contentNm4 = ["치과교정과","수술실","마취회복실","산모치료실","신생아실","엘리베이터","엘리베이터","당일수술센터","산부인과","영상의학과","안과","외래약국"];
-			var contentNm5 = ["신장내과","신경외과","신경과","순환기내과","소화기내과","엘리베이터","엘리베이터","506호실","성형외과","마취통증의학과","류마티스내과","내분비과"];
+			var contentNm5 = ["신장내과","신경외과","신경과","순환기내과","소화기내과","엘리베이터","엘리베이터","화장실","성형외과","마취통증의학과","류마티스내과","내분비과"];
 			var contentNm6 = ["심장혈관흉부외과","외과","입원내과","정형외과","구강악안면외과","엘리베이터","엘리베이터","치과보존과-보철과","혈액종양내과","편의점","야외공원","휴게실"];
 			var contentNm7 = ["701호실","702호실","703호실","704호실","705호실","엘리베이터","엘리베이터","706호실","707호실","708호실","709호실","710호실"];
 			
 			function fn_gogo(i){
-				if(flag){
-					customOverlay[0].setMap(null);
-					customOverlay[1].setMap(null);
-					customOverlay[2].setMap(null);
-					customOverlay[3].setMap(null);
-					customOverlay[4].setMap(null);
-					customOverlay[5].setMap(null);
-					customOverlay[6].setMap(null);
-					customOverlay[7].setMap(null);
-					customOverlay[8].setMap(null);
-					customOverlay[9].setMap(null);
-					customOverlay[10].setMap(null);
-					customOverlay[11].setMap(null);
+				if(flag1){
+					hspcustomOverlay[0].setMap(null);
+					hspcustomOverlay[1].setMap(null);
+					hspcustomOverlay[2].setMap(null);
+					hspcustomOverlay[3].setMap(null);
+					hspcustomOverlay[4].setMap(null);
+					hspcustomOverlay[5].setMap(null);
+					hspcustomOverlay[6].setMap(null);
+					hspcustomOverlay[7].setMap(null);
+					hspcustomOverlay[8].setMap(null);
+					hspcustomOverlay[9].setMap(null);
+					hspcustomOverlay[10].setMap(null);
+					hspcustomOverlay[11].setMap(null);
 				}
 				if(i==1){
 					for(j=0; j < contentNm1.length; j++){
 					// 커스텀 오버레이에 표시할 내용입니다     
 					// HTML 문자열 또는 Dom Element 입니다 
-					content[j] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm1[j]+'</span><span class="right"></span></div>';
+					hspcontent[j] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm1[j]+'</span><span class="right"></span></div>';
 		
 					// 커스텀 오버레이가 표시될 위치입니다 
-					position[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
+					hspposition[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
 			
 					// 커스텀 오버레이를 생성합니다
-					customOverlay[j] = new kakao.maps.CustomOverlay({
-					    position: position[j],
-					    content: content[j]   
+					hspcustomOverlay[j] = new kakao.maps.CustomOverlay({
+					    position: hspposition[j],
+					    content: hspcontent[j]   
 					});
 			
 					// 커스텀 오버레이를 지도에 표시합니다
-					customOverlay[j].setMap(map);
+					hspcustomOverlay[j].setMap(map);
 					}
 					// ------------------
-					flag = true;
+					flag1 = true;
 				}
 				if(i==2){
 					for(j=0; j < contentNm2.length; j++){
 					// 커스텀 오버레이에 표시할 내용입니다     
 					// HTML 문자열 또는 Dom Element 입니다 
-					content[j] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm2[j]+'</span><span class="right"></span></div>';
+					hspcontent[j] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm2[j]+'</span><span class="right"></span></div>';
 		
 					// 커스텀 오버레이가 표시될 위치입니다 
-					position[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
+					hspposition[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
 			
 					// 커스텀 오버레이를 생성합니다
-					customOverlay[j] = new kakao.maps.CustomOverlay({
-					    position: position[j],
-					    content: content[j]   
+					hspcustomOverlay[j] = new kakao.maps.CustomOverlay({
+					    position: hspposition[j],
+					    content: hspcontent[j]   
 					});
 			
 					// 커스텀 오버레이를 지도에 표시합니다
-					customOverlay[j].setMap(map);
+					hspcustomOverlay[j].setMap(map);
 					}
 					// ------------------
-					flag = true;
+					flag1 = true;
 				}
 				if(i==3){
 					for(j=0; j < contentNm3.length; j++){
 					// 커스텀 오버레이에 표시할 내용입니다     
 					// HTML 문자열 또는 Dom Element 입니다 
-					content[j] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm3[j]+'</span><span class="right"></span></div>';
+					hspcontent[j] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm3[j]+'</span><span class="right"></span></div>';
 		
 					// 커스텀 오버레이가 표시될 위치입니다 
-					position[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
+					hspposition[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
 			
 					// 커스텀 오버레이를 생성합니다
-					customOverlay[j] = new kakao.maps.CustomOverlay({
-					    position: position[j],
-					    content: content[j]   
+					hspcustomOverlay[j] = new kakao.maps.CustomOverlay({
+					    position: hspposition[j],
+					    content: hspcontent[j]   
 					});
 			
 					// 커스텀 오버레이를 지도에 표시합니다
-					customOverlay[j].setMap(map);
+					hspcustomOverlay[j].setMap(map);
 					}
 					// ------------------
-					flag = true;
+					flag1 = true;
 				}
 				if(i==4){
 					for(j=0; j < contentNm4.length; j++){
 					// 커스텀 오버레이에 표시할 내용입니다     
 					// HTML 문자열 또는 Dom Element 입니다 
-					content[j] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm4[j]+'</span><span class="right"></span></div>';
+					hspcontent[j] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm4[j]+'</span><span class="right"></span></div>';
 		
 					// 커스텀 오버레이가 표시될 위치입니다 
-					position[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
+					hspposition[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
 			
 					// 커스텀 오버레이를 생성합니다
-					customOverlay[j] = new kakao.maps.CustomOverlay({
-					    position: position[j],
-					    content: content[j]   
+					hspcustomOverlay[j] = new kakao.maps.CustomOverlay({
+					    position: hspposition[j],
+					    content: hspcontent[j]   
 					});
 			
 					// 커스텀 오버레이를 지도에 표시합니다
-					customOverlay[j].setMap(map);
+					hspcustomOverlay[j].setMap(map);
 					}
 					// ------------------
-					flag = true;
+					flag1 = true;
 				}
 				if(i==5){
 					for(j=0; j < contentNm5.length; j++){
 					// 커스텀 오버레이에 표시할 내용입니다     
 					// HTML 문자열 또는 Dom Element 입니다 
-					content[j] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm5[j]+'</span><span class="right"></span></div>';
+					hspcontent[j] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm5[j]+'</span><span class="right"></span></div>';
 		
 					// 커스텀 오버레이가 표시될 위치입니다 
-					position[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
+					hspposition[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
 			
 					// 커스텀 오버레이를 생성합니다
-					customOverlay[j] = new kakao.maps.CustomOverlay({
-					    position: position[j],
-					    content: content[j]   
+					hspcustomOverlay[j] = new kakao.maps.CustomOverlay({
+					    position: hspposition[j],
+					    content: hspcontent[j]   
 					});
 			
 					// 커스텀 오버레이를 지도에 표시합니다
-					customOverlay[j].setMap(map);
+					hspcustomOverlay[j].setMap(map);
 					}
 					// ------------------
-					flag = true;
+					flag1 = true;
 				}
 				if(i==6){
 					for(j=0; j < contentNm6.length; j++){
 					// 커스텀 오버레이에 표시할 내용입니다     
 					// HTML 문자열 또는 Dom Element 입니다 
-					content[j] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm6[j]+'</span><span class="right"></span></div>';
+					hspcontent[j] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm6[j]+'</span><span class="right"></span></div>';
 		
 					// 커스텀 오버레이가 표시될 위치입니다 
-					position[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
+					hspposition[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
 			
 					// 커스텀 오버레이를 생성합니다
-					customOverlay[j] = new kakao.maps.CustomOverlay({
-					    position: position[j],
-					    content: content[j]   
+					hspcustomOverlay[j] = new kakao.maps.CustomOverlay({
+					    position: hspposition[j],
+					    content: hspcontent[j]   
 					});
 			
 					// 커스텀 오버레이를 지도에 표시합니다
-					customOverlay[j].setMap(map);
+					hspcustomOverlay[j].setMap(map);
 					}
 					// ------------------
-					flag = true;
+					flag1 = true;
 				}
 				if(i==7){
 					for(j=0; j < contentNm7.length; j++){
 					// 커스텀 오버레이에 표시할 내용입니다     
 					// HTML 문자열 또는 Dom Element 입니다 
-					content[j] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm7[j]+'</span><span class="right"></span></div>';
+					hspcontent[j] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm7[j]+'</span><span class="right"></span></div>';
 		
 					// 커스텀 오버레이가 표시될 위치입니다 
-					position[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
+					hspposition[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
 			
 					// 커스텀 오버레이를 생성합니다
-					customOverlay[j] = new kakao.maps.CustomOverlay({
-					    position: position[j],
-					    content: content[j]   
+					hspcustomOverlay[j] = new kakao.maps.CustomOverlay({
+					    position: hspposition[j],
+					    content: hspcontent[j]   
 					});
 			
 					// 커스텀 오버레이를 지도에 표시합니다
-					customOverlay[j].setMap(map);
+					hspcustomOverlay[j].setMap(map);
 					}
 					// ------------------
-					flag = true;
+					flag1 = true;
 				}
 				
 			}//gogo()함수 종료
