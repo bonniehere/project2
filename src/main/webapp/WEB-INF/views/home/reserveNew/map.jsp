@@ -909,42 +909,7 @@
 					 
 					 
 					 <!-- 내가 가져온 지도 constant 지도!!!!!!!!!!!-->
-<!-- 내가 추가한 script -->
-	
-	
-	<script>
-	$(document).ready(function(){	
-	
-    var floor = document.getElementsByClassName("floor");
 
-    function handleClick(event) {
-      console.log(event.target);
-      // console.log(this);
-      // 콘솔창을 보면 둘다 동일한 값이 나온다
-
-      console.log(event.target.classList);
-
-      if (event.target.classList[1] === "clicked") {
-        event.target.classList.remove("clicked");
-      } else {
-        for (var i = 0; i < floor.length; i++) {
-          floor[i].classList.remove("clicked");
-        }
-
-        event.target.classList.add("clicked");
-      }
-    }
-
-    function init() {
-      for (var i = 0; i < floor.length; i++) {
-        floor[i].addEventListener("click", handleClick);
-      }
-    }
-
-    init();
-    
-	})
-    </script>
 					 
 					 
 <div class="map_area">
@@ -994,6 +959,8 @@
 					hspcustomOverlay[11].setMap(null);
 				}
 				if(i==1){
+			        $("input:radio[name='radioFloor']:radio[id="+i+"F]").prop('checked', true); // 선택하기
+			        
 					for(j=0; j < contentNm1.length; j++){
 					// 커스텀 오버레이에 표시할 내용입니다     
 					// HTML 문자열 또는 Dom Element 입니다 
@@ -1007,7 +974,10 @@
 					    position: hspposition[j],
 					    content: hspcontent[j]   
 					});
-			
+					for(k=1; k<=7; k++){
+						$("#btn"+k+"F").css({"background-color":"#1474d0","color":"white"}); // css변경 초기화
+					}
+					$("#btn"+i+"F").css({"background-color":"white","color":"#1474d0"}); // css변경
 					// 커스텀 오버레이를 지도에 표시합니다
 					hspcustomOverlay[j].setMap(map);
 					}
@@ -1015,6 +985,7 @@
 					flag1 = true;
 				}
 				if(i==2){
+					$("input:radio[name='radioFloor']:radio[id="+i+"F]").prop('checked', true); // 선택하기
 					for(j=0; j < contentNm2.length; j++){
 					// 커스텀 오버레이에 표시할 내용입니다     
 					// HTML 문자열 또는 Dom Element 입니다 
@@ -1028,7 +999,10 @@
 					    position: hspposition[j],
 					    content: hspcontent[j]   
 					});
-			
+					for(k=1; k<=7; k++){
+						$("#btn"+k+"F").css({"background-color":"#1474d0","color":"white"}); // css변경 초기화
+					}
+					$("#btn"+i+"F").css({"background-color":"white","color":"#1474d0"}); // css변경
 					// 커스텀 오버레이를 지도에 표시합니다
 					hspcustomOverlay[j].setMap(map);
 					}
@@ -1036,6 +1010,7 @@
 					flag1 = true;
 				}
 				if(i==3){
+					$("input:radio[name='radioFloor']:radio[id="+i+"F]").prop('checked', true); // 선택하기
 					for(j=0; j < contentNm3.length; j++){
 					// 커스텀 오버레이에 표시할 내용입니다     
 					// HTML 문자열 또는 Dom Element 입니다 
@@ -1049,7 +1024,10 @@
 					    position: hspposition[j],
 					    content: hspcontent[j]   
 					});
-			
+					for(k=1; k<=7; k++){
+						$("#btn"+k+"F").css({"background-color":"#1474d0","color":"white"}); // css변경 초기화
+					}
+					$("#btn"+i+"F").css({"background-color":"white","color":"#1474d0"}); // css변경
 					// 커스텀 오버레이를 지도에 표시합니다
 					hspcustomOverlay[j].setMap(map);
 					}
@@ -1057,6 +1035,7 @@
 					flag1 = true;
 				}
 				if(i==4){
+					$("input:radio[name='radioFloor']:radio[id="+i+"F]").prop('checked', true); // 선택하기
 					for(j=0; j < contentNm4.length; j++){
 					// 커스텀 오버레이에 표시할 내용입니다     
 					// HTML 문자열 또는 Dom Element 입니다 
@@ -1070,7 +1049,10 @@
 					    position: hspposition[j],
 					    content: hspcontent[j]   
 					});
-			
+					for(k=1; k<=7; k++){
+						$("#btn"+k+"F").css({"background-color":"#1474d0","color":"white"}); // css변경 초기화
+					}
+					$("#btn"+i+"F").css({"background-color":"white","color":"#1474d0"}); // css변경
 					// 커스텀 오버레이를 지도에 표시합니다
 					hspcustomOverlay[j].setMap(map);
 					}
@@ -1078,6 +1060,7 @@
 					flag1 = true;
 				}
 				if(i==5){
+					$("input:radio[name='radioFloor']:radio[id="+i+"F]").prop('checked', true); // 선택하기
 					for(j=0; j < contentNm5.length; j++){
 					// 커스텀 오버레이에 표시할 내용입니다     
 					// HTML 문자열 또는 Dom Element 입니다 
@@ -1091,7 +1074,10 @@
 					    position: hspposition[j],
 					    content: hspcontent[j]   
 					});
-			
+					for(k=1; k<=7; k++){
+						$("#btn"+k+"F").css({"background-color":"#1474d0","color":"white"}); // css변경 초기화
+					}
+					$("#btn"+i+"F").css({"background-color":"white","color":"#1474d0"}); // css변경
 					// 커스텀 오버레이를 지도에 표시합니다
 					hspcustomOverlay[j].setMap(map);
 					}
@@ -1099,6 +1085,7 @@
 					flag1 = true;
 				}
 				if(i==6){
+					$("input:radio[name='radioFloor']:radio[id="+i+"F]").prop('checked', true); // 선택하기
 					for(j=0; j < contentNm6.length; j++){
 					// 커스텀 오버레이에 표시할 내용입니다     
 					// HTML 문자열 또는 Dom Element 입니다 
@@ -1112,7 +1099,10 @@
 					    position: hspposition[j],
 					    content: hspcontent[j]   
 					});
-			
+					for(k=1; k<=7; k++){
+						$("#btn"+k+"F").css({"background-color":"#1474d0","color":"white"}); // css변경 초기화
+					}
+					$("#btn"+i+"F").css({"background-color":"white","color":"#1474d0"}); // css변경
 					// 커스텀 오버레이를 지도에 표시합니다
 					hspcustomOverlay[j].setMap(map);
 					}
@@ -1120,6 +1110,7 @@
 					flag1 = true;
 				}
 				if(i==7){
+					$("input:radio[name='radioFloor']:radio[id="+i+"F]").prop('checked', true); // 선택하기
 					for(j=0; j < contentNm7.length; j++){
 					// 커스텀 오버레이에 표시할 내용입니다     
 					// HTML 문자열 또는 Dom Element 입니다 
@@ -1133,7 +1124,10 @@
 					    position: hspposition[j],
 					    content: hspcontent[j]   
 					});
-			
+					for(k=1; k<=7; k++){
+						$("#btn"+k+"F").css({"background-color":"#1474d0","color":"white"}); // css변경 초기화
+					}
+					$("#btn"+i+"F").css({"background-color":"white","color":"#1474d0"}); // css변경
 					// 커스텀 오버레이를 지도에 표시합니다
 					hspcustomOverlay[j].setMap(map);
 					}
@@ -1205,15 +1199,54 @@
 
 </div>
 
+<!-- 내가 추가한 script -->
+	
+	
+	<script>
+	/*
+	$(document).ready(function(){	
+	
+    var floor = document.getElementsByClassName("floor");
+
+    function handleClick(event) {
+      console.log(event.target);
+      // console.log(this);
+      // 콘솔창을 보면 둘다 동일한 값이 나온다
+
+      console.log(event.target.classList);
+
+      if (event.target.classList[1] === "clicked") {
+        event.target.classList.remove("clicked");
+      } else {
+        for (var i = 0; i < floor.length; i++) {
+          floor[i].classList.remove("clicked");
+        }
+
+        event.target.classList.add("clicked");
+      }
+    }
+
+    function init() {
+      for (var i = 0; i < floor.length; i++) {
+        floor[i].addEventListener("click", handleClick);
+      }
+    }
+
+    init();
+    
+	})
+	*/
+    </script>
+
 			<div class="map_info">
 				<ul class="floortit">
-					<li class="floor"><a href="javascript:void(0);" onclick="javascript:fn_gogo(1);" class="btn_pop_sty1">1F</a></li>
-					<li class="floor"><a href="javascript:void(0);" onclick="javascript:fn_gogo(2);" class="btn_pop_sty1">2F</a></li>
-					<li class="floor"><a href="javascript:void(0);" onclick="javascript:fn_gogo(3);" class="btn_pop_sty1">3F</a></li>
-					<li class="floor"><a href="javascript:void(0);" onclick="javascript:fn_gogo(4);" class="btn_pop_sty1">4F</a></li>
-					<li class="floor"><a href="javascript:void(0);" onclick="javascript:fn_gogo(5);" class="btn_pop_sty1">5F</a></li>
-					<li class="floor"><a href="javascript:void(0);" onclick="javascript:fn_gogo(6);" class="btn_pop_sty1">6F</a></li>
-					<li class="floor"><a href="javascript:void(0);" onclick="javascript:fn_gogo(7);" class="btn_pop_sty1">7F</a></li>
+					<li class="floor"><input type="radio" name="radioFloor" id="1F" style="opacity:0;"><a href="javascript:void(0);" onclick="javascript:fn_gogo(1);" class="btn_pop_sty1" id="btn1F">1F</a></li>
+					<li class="floor"><input type="radio" name="radioFloor" id="2F" style="opacity:0;"><a href="javascript:void(0);" onclick="javascript:fn_gogo(2);" class="btn_pop_sty1" id="btn2F">2F</a></li>
+					<li class="floor"><input type="radio" name="radioFloor" id="3F" style="opacity:0;"><a href="javascript:void(0);" onclick="javascript:fn_gogo(3);" class="btn_pop_sty1" id="btn3F">3F</a></li>
+					<li class="floor"><input type="radio" name="radioFloor" id="4F" style="opacity:0;"><a href="javascript:void(0);" onclick="javascript:fn_gogo(4);" class="btn_pop_sty1" id="btn4F">4F</a></li>
+					<li class="floor"><input type="radio" name="radioFloor" id="5F" style="opacity:0;"><a href="javascript:void(0);" onclick="javascript:fn_gogo(5);" class="btn_pop_sty1" id="btn5F">5F</a></li>
+					<li class="floor"><input type="radio" name="radioFloor" id="6F" style="opacity:0;"><a href="javascript:void(0);" onclick="javascript:fn_gogo(6);" class="btn_pop_sty1" id="btn6F">6F</a></li>
+					<li class="floor"><input type="radio" name="radioFloor" id="7F" style="opacity:0;"><a href="javascript:void(0);" onclick="javascript:fn_gogo(7);" class="btn_pop_sty1" id="btn7F">7F</a></li>
 				</ul>
 			<!-- 	<a href="http://kko.to/H-uFIK0Px" target="_blank">Kakao 지도 바로가기</a> -->
 			</div>
