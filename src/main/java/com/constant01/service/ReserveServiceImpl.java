@@ -26,5 +26,8 @@ public class ReserveServiceImpl implements ReserveService{
 		// 회원상세내용
 		return rm.list2(reserve);
 	}
-	
+	public ArrayList<ReserveDTO> list3(ReserveDTO reserve) {
+		// 회원상세내용
+		return rm.list3(reserve);
+	}
 }

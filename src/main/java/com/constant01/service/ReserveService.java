@@ -12,4 +12,6 @@ public interface ReserveService {
 	
 	public ArrayList<ReserveDTO> list2(ReserveDTO reserve);
 	
+	public ArrayList<ReserveDTO> list3(ReserveDTO reserve);
+	
 }

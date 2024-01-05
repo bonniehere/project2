@@ -283,16 +283,18 @@
 		
 		
 		//예약 진료과 위치 보기
-		function fn_ResMap(deptNm,userNm){
-			var formTag = "";
-			formTag += "<form id='hspForm' name='hspForm' method='post'>";
-			formTag += "<input name='deptNm' value='"+deptNm+"'/>";
-			formTag += "<input name='userNm' value='"+userNm+"'/>";
-			formTag += "</form>";
-			$("body").append(formTag);
-			$("#hspForm").attr({"action":"/home/reserveNew/map2.do","target":"_self"}).submit();
+		function fn_ResMap(obj){
+			var oTd = $(obj).parent();
+			G_Util.newFormSubmit({
+				"action" : "/home/reserveNew/map2.do",
+				"param"  : {
+					"userId"      : oTd.find("input[name=userId]").val(),
+					"resvIdx"      : oTd.find("input[name=resvIdx]").val(),
+					"num"      : oTd.find("input[name=num]").val()
+				}
+			
+			})
 		}
-		
 
 	</script>
 
@@ -875,8 +877,12 @@
 														<a href="javascript:void(0);" class="chip2_sty2" onclick="javascript:fn_ResvPop(this);">출력</a>
 													</td>
 													<td>
+														<input type="hidden" name="userId" value="${list.userId}">
+														<input type="hidden" name="resvIdx" value="${list.resvIdx}">
+														<input type="hidden" name="num" value="${list.num}">
+														<a href="javascript:void(0);" class="chip2_sty2" onclick="javascript:fn_ResMap(this);">지도</a>
 														<!-- 예약 지도 보기 내가 추가함 -->
-														<a href="javascript:void(0);" class="chip2_sty2" onclick="javascript:fn_ResMap(${list.selDeptNm},${list.userNm});">지도</a>
+														<!-- <a href="javascript:void(0);" class="chip2_sty2" onclick="javascript:fn_ResMap(${list.selDeptNm},${list.userNm});">지도</a> -->
 													</td>
 												</tr>
 											</c:forEach>

@@ -16,5 +16,8 @@
 	<select id="list2" resultType="com.constant01.model.ReserveDTO">
 		select * from reserve where selProfNo=#{selProfNo} order by resvDd;
 	</select>
+	<select id="list3" resultType="com.constant01.model.ReserveDTO">
+		select * from reserve where num=#{num} order by resvDd;
+	</select>
 
 </mapper>
