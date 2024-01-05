@@ -109,11 +109,13 @@ public class ReserveController {
 		return "home/reserveNew/map";
 	
 	}
-	// 지도띄우기 실험용     ------------------------------------------------------------------------------------------------
-	@RequestMapping(value = "home/reserveNew/map2.do", method = RequestMethod.GET)
+	// 예약한 과 지도 띄우기 !!!    ------------------------------------------------------------------------------------------------
+	@RequestMapping(value = "home/reserveNew/map2.do", method = RequestMethod.POST)
 	public String map2() {
 			
 		return "home/reserveNew/map2";
 		
 	}
+	
+
 }
