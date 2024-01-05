@@ -111,8 +111,10 @@ public class ReserveController {
 	}
 	// 예약한 과 지도 띄우기 !!!    ------------------------------------------------------------------------------------------------
 	@RequestMapping(value = "home/reserveNew/map2.do", method = RequestMethod.POST)
-	public String map2() {
-			
+	public String map2(ReserveDTO reserve,Model model) {
+		System.out.println("맵2");
+		model.addAttribute("list", rs.list3(reserve));
+		System.out.println(rs.list3(reserve));
 		return "home/reserveNew/map2";
 		
 	}

@@ -1,5 +1,7 @@
+<%@page import="com.constant01.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko" xmlns="http://www.w3.org/1999/xhtml"><head>
 	<meta charset="utf-8">
@@ -769,7 +771,8 @@
 		<!--sub_container_wrapper-->
 		<section class="title fix">
             <div class="inner fix">
-            	<h2>병원 내부 실시간 지도</h2>
+            	<h2>진료 예약과 : ${list[0].selDeptNm}
+            	</h2>
 <a href="javascript:fn_goMenu('/home/conts/101002003000000.do');" class="title_next">Next</a>
 
             </div>
@@ -942,7 +945,26 @@
 			var contentNm5 = ["신장내과","신경외과","신경과","순환기내과","소화기내과","엘리베이터","엘리베이터","화장실","성형외과","마취통증의학과","류마티스내과","내분비과"];
 			var contentNm6 = ["심장혈관흉부외과","외과","입원내과","정형외과","구강악안면외과","엘리베이터","엘리베이터","치과보존과-보철과","혈액종양내과","편의점","야외공원","휴게실"];
 			var contentNm7 = ["701호실","702호실","703호실","704호실","705호실","엘리베이터","엘리베이터","706호실","707호실","708호실","709호실","710호실"];
-			
+			var contentNm = [contentNm1,contentNm2,contentNm3,contentNm4,contentNm5,contentNm6,contentNm7];
+			/*
+			if()
+			// 커스텀 오버레이에 표시할 내용입니다     
+			// HTML 문자열 또는 Dom Element 입니다 
+			hspcontent[j] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm1[j]+'</span><span class="right"></span></div>';
+
+			// 커스텀 오버레이가 표시될 위치입니다 
+			hspposition[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
+	
+			// 커스텀 오버레이를 생성합니다
+			hspcustomOverlay[j] = new kakao.maps.CustomOverlay({
+			    position: hspposition[j],
+			    content: hspcontent[j]   
+			});
+			// 커스텀 오버레이를 지도에 표시합니다
+			hspcustomOverlay[j].setMap(map);
+			}
+			*/
+			/*
 			function fn_gogo(i){
 				if(flag1){
 					hspcustomOverlay[0].setMap(null);
@@ -1135,7 +1157,7 @@
 					flag1 = true;
 				}
 				
-			}//gogo()함수 종료
+			}*///gogo()함수 종료
 			var hsp = new kakao.maps.LatLng(35.54297, 129.33657);
 			//위치 정보 가져오기
 			var lat;
