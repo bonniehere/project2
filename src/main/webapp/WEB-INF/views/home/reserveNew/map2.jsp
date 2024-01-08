@@ -57,10 +57,10 @@
 		float: left;
 		color: white;
 		margin-bottom: 20px;
-		margin-left: 13px;
-		margin-right: 13px;
+		margin-left: 10px;
+		margin-right: 10px;
 		display: inline-block;
-		font-size: 150%;
+		font-size: 130%;
 	}
 	
 	.clicked{
@@ -100,7 +100,10 @@
 		font-weight: bold;
 		margin: 10px 17px 10px 17px;
 	}
-
+	.center{
+		color: red;
+		font-weight: bold;
+	}
 	
 	</style>
 	
@@ -1279,7 +1282,7 @@
 					<li class="floor"><input type="radio" name="radioFloor" id="1F" style="opacity:0;"><a href="javascript:void(0);" onclick="javascript:fn_gogo(1);" class="btn_pop_sty1" id="btn1F">1F</a></li>
 					<li class="floor"><input type="radio" name="radioFloor" id="2F" style="opacity:0;"><a href="javascript:void(0);" onclick="javascript:fn_gogo(2);" class="btn_pop_sty1" id="btn2F">2F</a></li>
 					<li class="floor"><input type="radio" name="radioFloor" id="3F" style="opacity:0;"><a href="javascript:void(0);" onclick="javascript:fn_gogo(3);" class="btn_pop_sty1" id="btn3F">3F</a></li>
-					<li class="floor"><input type="radio" name="radioFloor" id="4F" style="opacity:0;"><a href="javascript:void(0);" onclick="javascript:fn_gogo(4);" class="btn_pop_sty1" id="btn4F">4F</a></li>
+					<li class="floor"><input type="radio" name="radioFloor" id="4F" style="opacity:0;"><a href="javascript:void(0);" onclick="javascript:fn_gogo(4);" class="btn_pop_sty1" id="btn4F">4F</a></li><br>
 					<li class="floor"><input type="radio" name="radioFloor" id="5F" style="opacity:0;"><a href="javascript:void(0);" onclick="javascript:fn_gogo(5);" class="btn_pop_sty1" id="btn5F">5F</a></li>
 					<li class="floor"><input type="radio" name="radioFloor" id="6F" style="opacity:0;"><a href="javascript:void(0);" onclick="javascript:fn_gogo(6);" class="btn_pop_sty1" id="btn6F">6F</a></li>
 					<li class="floor"><input type="radio" name="radioFloor" id="7F" style="opacity:0;"><a href="javascript:void(0);" onclick="javascript:fn_gogo(7);" class="btn_pop_sty1" id="btn7F">7F</a></li>
