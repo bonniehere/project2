@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"><head>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Script-Type" content="text/javascript">
 	<meta http-equiv="Content-Style-Type" content="text/css">
@@ -20,22 +21,22 @@
 	<meta http-equiv="Expires" content="-1">
 	<link rel="shortcut icon" href="/common/front/home/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/common/front/home/favicon.ico" type="image/x-icon">
-	<link type="text/css" rel="stylesheet" href="/common/front/home/css/default.css?ver=20230220">
-   <link type="text/css" rel="stylesheet" href="/common/front/home/css/responsive.css?ver=20230905">
-   <link type="text/css" rel="stylesheet" href="/common/front/home/css/swiper-bundle.min.css?ver=1">
-   <link type="text/css" rel="stylesheet" href="/common/front/home/css/reservation.css?ver=1">
-	<link type="text/css" rel="stylesheet" href="/common/front/home/css/floor.css?ver=1">
-	<link type="text/css" rel="stylesheet" href="/common/front/home/css/intro.css?ver=1">
-	<script type="text/javascript" src="/common/front/home/js/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="/common/front/home/js/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="/common/front/home/js/design.js"></script>
-	<script type="text/javascript" src="/common/front/home/js/swiper.min.js"></script>
-	<script type="text/javascript" src="/common/front/home/js/rolling.js"></script>
-	<script type="text/javascript" src="/common/front/home/js/scrolla.jquery.js"></script>
-	<script type="text/javascript" src="/common/front/home/js/scrolloverflow.js"></script>
-	<script type="text/javascript" src="/common/front/home/js/fullpage.js"></script>
-	<script type="text/javascript" src="/common/front/home/js/scrolla.jquery.js"></script>
-	<script type="text/javascript" src="/common/front/home/js/common.js"></script>
+	<link type="text/css" rel="stylesheet" href="../../../../resources/css/default.css?ver=20230220">
+   <link type="text/css" rel="stylesheet" href="../../../../resources/css/responsive.css?ver=20230905">
+   <link type="text/css" rel="stylesheet" href="../../../../resources/css/swiper-bundle.min.css?ver=1">
+   <link type="text/css" rel="stylesheet" href="../../../../resources/css/reservation.css?ver=1">
+	<link type="text/css" rel="stylesheet" href="../../../../resources/css/floor.css?ver=1">
+	<link type="text/css" rel="stylesheet" href="../../../../resources/css/intro.css?ver=1">
+	<script type="text/javascript" src="../../../../resources/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="../../../../resources/js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../../../resources/js/design.js"></script>
+	<script type="text/javascript" src="../../../../resources/js/swiper.min.js"></script>
+	<script type="text/javascript" src="../../../../resources/js/rolling.js"></script>
+	<script type="text/javascript" src="../../../../resources/js/scrolla.jquery.js"></script>
+	<script type="text/javascript" src="../../../../resources/js/scrolloverflow.js"></script>
+	<script type="text/javascript" src="../../../../resources/js/fullpage.js"></script>
+	<script type="text/javascript" src="../../../../resources/js/scrolla.jquery.js"></script>
+	<script type="text/javascript" src="../../../../resources/js/common.js"></script>
 	<script type="text/javascript">
 		if( window.location.href.indexOf('www.cauhs.or.kr') > -1){
 			location.href='https://ch.cauhs.or.kr/group/';
@@ -248,7 +249,34 @@
 		}
 	</script>
 
-<link rel="stylesheet" href="https://t1.daumcdn.net/kakaomapweb/place/jscss/roughmap/6af7869e/roughmapLander.css"><script src="//ssl.daumcdn.net/dmaps/map_js_init/v3.js?autoload=false"></script><script src="https://t1.daumcdn.net/mapjsapi/js/main/4.4.14/v3.js"></script></head>
+<link rel="stylesheet" href="https://t1.daumcdn.net/kakaomapweb/place/jscss/roughmap/6af7869e/roughmapLander.css"><script src="//ssl.daumcdn.net/dmaps/map_js_init/v3.js?autoload=false"></script><script src="https://t1.daumcdn.net/mapjsapi/js/main/4.4.14/v3.js"></script>
+
+<!-- css -->
+
+<style>
+#ful {
+	list-style:none;
+
+}
+
+.fli{
+	float:left;
+	margin: 10px 10px 10px 10px;
+}
+
+.floor{
+	color: black;
+	padding: 8px;
+	
+}
+
+
+
+</style>
+
+
+
+</head>
 <body>
 	<!-- wrap -->
 	<div class="contents_wrapper">
@@ -743,15 +771,17 @@
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 			    mapOption = { 
 			        center: new kakao.maps.LatLng(35.542990773269565, 129.33653130703433), // 지도의 중심좌표
-			        level: 4 // 지도의 확대 레벨 
+			        level: 2 // 지도의 확대 레벨 
 			    }; 
 			
 			var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-			// 마우스 드래그와 모바일 터치를 이용한 지도 이동을 막는다
-			map.setDraggable(false);		
+			
+		    // 마우스 드래그로 지도 이동 가능여부를 설정합니다
+		    map.setDraggable(false);    
+		    // 마우스 확대로 지도 이동 가능여부를 설정합니다
+		    map.setZoomable(false);
 	
-			// 마우스 휠과 모바일 터치를 이용한 지도 확대, 축소를 막는다
-			map.setZoomable(false);  
+			
 			
 			var flag1=false;
 			var hspcontent = [];
@@ -766,25 +796,280 @@
 			var contentNm5 = ["신장내과","신경외과","신경과","순환기내과","소화기내과","엘리베이터","엘리베이터","화장실","성형외과","마취통증의학과","류마티스내과","내분비과"];
 			var contentNm6 = ["심장혈관흉부외과","외과","입원내과","정형외과","구강악안면외과","엘리베이터","엘리베이터","치과보존과-보철과","혈액종양내과","편의점","야외공원","휴게실"];
 			var contentNm7 = ["701호실","702호실","703호실","704호실","705호실","엘리베이터","엘리베이터","706호실","707호실","708호실","709호실","710호실"];
+			var deletef;
 			
 			
 			
+			function fn_BBong(i){
+				
+				if(flag1){
+					hspcustomOverlay[0].setMap(null);
+					hspcustomOverlay[1].setMap(null);
+					hspcustomOverlay[2].setMap(null);
+					hspcustomOverlay[3].setMap(null);
+					hspcustomOverlay[4].setMap(null);
+					hspcustomOverlay[5].setMap(null);
+					hspcustomOverlay[6].setMap(null);
+					hspcustomOverlay[7].setMap(null);
+					hspcustomOverlay[8].setMap(null);
+					hspcustomOverlay[9].setMap(null);
+					hspcustomOverlay[10].setMap(null);
+					hspcustomOverlay[11].setMap(null);
+				}
+
+				
+				
 			
+				if(i==1){ //1층 표시
+					
+					console.log("dddd")
+						
+					
+					// 커스텀 오버레이에 표시할 내용입니다     
+					// HTML 문자열 또는 Dom Element 입니다 
+					
+					for(a=0; a < contentNm1.length; a++){
+						
+						//console.log(a);
+						
+						hspcontent[a] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm1[a]+'</span><span class="right"></span></div>';
+						
+						// 커스텀 오버레이가 표시될 위치입니다 
+						hspposition[a] = new kakao.maps.LatLng(positionlat[a], positionlon[a]);   
+	
+						// 커스텀 오버레이를 생성합니다
+						hspcustomOverlay[a] = new kakao.maps.CustomOverlay({
+						    position: hspposition[a],
+						    content: hspcontent[a]   
+						});
+						for(j=0; j<8; j++){
+							
+							//$("<input/>").attr("type","text").attr("name","id").attr("id","id")
+							
+							$('#'+j+'f').css('background-color', '');
+							
+						};
+	
+						// 커스텀 오버레이를 지도에 표시합니다
+						hspcustomOverlay[a].setMap(map);
+						flag1=true;
+						
+						$('#1f').css('background-color', 'white');
+						
+						
+					};
+					
+					
 			
+				};
+				
+				
+				
+				if(i==2){ //2층 표시
+					
+					$('#1f').css('background-color', '');
+					
+					$('#3f').css('background-color', '');
+					
+					$('#2f').css('background-color', 'white');
+					// 커스텀 오버레이에 표시할 내용입니다     
+					// HTML 문자열 또는 Dom Element 입니다 
+					
+					for(a=0; a < contentNm2.length; a++){
+						
+						console.log(a);
+						
+						hspcontent[a] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm2[a]+'</span><span class="right"></span></div>';
+						
+						// 커스텀 오버레이가 표시될 위치입니다 
+						hspposition[a] = new kakao.maps.LatLng(positionlat[a], positionlon[a]);   
+	
+						// 커스텀 오버레이를 생성합니다
+						hspcustomOverlay[a] = new kakao.maps.CustomOverlay({
+						    position: hspposition[a],
+						    content: hspcontent[a]   
+						});
+	
+						// 커스텀 오버레이를 지도에 표시합니다
+						hspcustomOverlay[a].setMap(map);
+						flag1=true;
+						console.log(hspcustomOverlay[1]);
+					};
 			
+				};
+				
+				
+			if(i==3){ //3층 표시
+				
+				$('#1f').css('background-color', '');
 			
+				$('#2f').css('background-color', '');
+				
+				$('#3f').css('background-color', 'white');
+					
+					// 커스텀 오버레이에 표시할 내용입니다     
+					// HTML 문자열 또는 Dom Element 입니다 
+					
+					for(a=0; a < contentNm3.length; a++){
+						
+						console.log(a);
+						
+						hspcontent[a] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm3[a]+'</span><span class="right"></span></div>';
+						
+						// 커스텀 오버레이가 표시될 위치입니다 
+						hspposition[a] = new kakao.maps.LatLng(positionlat[a], positionlon[a]);   
+	
+						// 커스텀 오버레이를 생성합니다
+						hspcustomOverlay[a] = new kakao.maps.CustomOverlay({
+						    position: hspposition[a],
+						    content: hspcontent[a]   
+						});
+	
+						// 커스텀 오버레이를 지도에 표시합니다
+						hspcustomOverlay[a].setMap(map);
+						flag1=true;
+						
+					
+					};
 			
+				};
+				
+			if(i==4){ //4층 표시
+					
+
+					
+					// 커스텀 오버레이에 표시할 내용입니다     
+					// HTML 문자열 또는 Dom Element 입니다 
+					
+					for(a=0; a < contentNm4.length; a++){
+						
+						console.log(a);
+						
+						hspcontent[a] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm4[a]+'</span><span class="right"></span></div>';
+						
+						// 커스텀 오버레이가 표시될 위치입니다 
+						hspposition[a] = new kakao.maps.LatLng(positionlat[a], positionlon[a]);   
+	
+						// 커스텀 오버레이를 생성합니다
+						hspcustomOverlay[a] = new kakao.maps.CustomOverlay({
+						    position: hspposition[a],
+						    content: hspcontent[a]   
+						});
+	
+						// 커스텀 오버레이를 지도에 표시합니다
+						hspcustomOverlay[a].setMap(map);
+						flag1=true;
+						
+					
+					};
 			
+				};
+				
+			if(i==5){ //5층 표시
+
+					
+					// 커스텀 오버레이에 표시할 내용입니다     
+					// HTML 문자열 또는 Dom Element 입니다 
+					
+					for(a=0; a < contentNm5.length; a++){
+						
+						console.log(a);
+						
+						hspcontent[a] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm5[a]+'</span><span class="right"></span></div>';
+						
+						// 커스텀 오버레이가 표시될 위치입니다 
+						hspposition[a] = new kakao.maps.LatLng(positionlat[a], positionlon[a]);   
+	
+						// 커스텀 오버레이를 생성합니다
+						hspcustomOverlay[a] = new kakao.maps.CustomOverlay({
+						    position: hspposition[a],
+						    content: hspcontent[a]   
+						});
+	
+						// 커스텀 오버레이를 지도에 표시합니다
+						hspcustomOverlay[a].setMap(map);
+						flag1=true;
+						
+					
+					};
 			
+				};
+				
+			if(i==6){ //6층 표시
+
+					
+					// 커스텀 오버레이에 표시할 내용입니다     
+					// HTML 문자열 또는 Dom Element 입니다 
+					
+					for(a=0; a < contentNm6.length; a++){
+						
+						console.log(a);
+						
+						hspcontent[a] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm6[a]+'</span><span class="right"></span></div>';
+						
+						// 커스텀 오버레이가 표시될 위치입니다 
+						hspposition[a] = new kakao.maps.LatLng(positionlat[a], positionlon[a]);   
+	
+						// 커스텀 오버레이를 생성합니다
+						hspcustomOverlay[a] = new kakao.maps.CustomOverlay({
+						    position: hspposition[a],
+						    content: hspcontent[a]   
+						});
+	
+						// 커스텀 오버레이를 지도에 표시합니다
+						hspcustomOverlay[a].setMap(map);
+						flag1=true;
+						
+					
+					};
 			
+				};
+				
+			if(i==7){ //7층 표시
+
+					
+					// 커스텀 오버레이에 표시할 내용입니다     
+					// HTML 문자열 또는 Dom Element 입니다 
+					
+					for(a=0; a < contentNm7.length; a++){
+						
+						console.log(a);
+						
+						hspcontent[a] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm7[a]+'</span><span class="right"></span></div>';
+						
+						// 커스텀 오버레이가 표시될 위치입니다 
+						hspposition[a] = new kakao.maps.LatLng(positionlat[a], positionlon[a]);   
+	
+						// 커스텀 오버레이를 생성합니다
+						hspcustomOverlay[a] = new kakao.maps.CustomOverlay({
+						    position: hspposition[a],
+						    content: hspcontent[a]   
+						});
+	
+						// 커스텀 오버레이를 지도에 표시합니다
+						hspcustomOverlay[a].setMap(map);
+						flag1=true;
+						
+						
+					
+					};
+					
+					
 			
+				};
 			
+						
+			};
+			
+						
+		
 			
 			
 			
 			
 			var hsp = new kakao.maps.LatLng(35.54297, 129.33657);
-			//위치 정보 가져오기
+			
+			//위치 정보 가져오기 (내 위치)
 			var lat;
 			var lon;
 			var options = {
@@ -818,6 +1103,7 @@
 			    console.log(na);
 			}
 			
+			//마커생성기
 			var marker;
 			var flag = false;
 			function displayMarker(locPosition, message){
@@ -837,6 +1123,11 @@
 			    map.setCenter(hsp);      
 			}    
 			
+			//클릭한 a태그만 색상 바꾸기
+			
+			
+			
+			
 			
 			</script>
 						 
@@ -845,7 +1136,16 @@
 			</div>
 
 			<div class="map_info">
-				<p class="tit">경기도 광명시 일직동 501</p>
+			<ul id="ful">
+			<li class="fli"><a class="floor" id="1f" href="javascript:void(0);" onclick="javascript:fn_BBong(1);">1F</a></li>
+			<li class="fli"><a class="floor" id="2f" href="javascript:void(0);" onclick="javascript:fn_BBong(2);">2F</a></li>
+			<li class="fli"><a class="floor" id="3f" href="javascript:void(0);" onclick="javascript:fn_BBong(3);">3F</a></li>
+			<li class="fli"><a class="floor" id="4f" href="javascript:void(0);" onclick="javascript:fn_BBong(4);">4F</a></li>
+			<li class="fli"><a class="floor" id="5f" href="javascript:void(0);" onclick="javascript:fn_BBong(5);">5F</a></li>
+			<li class="fli"><a class="floor" id="6f" href="javascript:void(0);" onclick="javascript:fn_BBong(6);">6F</a></li>
+			<li class="fli"><a class="floor" id="7f" href="javascript:void(0);" onclick="javascript:fn_BBong(7);">7F</a></li>
+			</ul>
+				<!-- <p class="tit">경기도 광명시 일직동 501</p>  -->
 				<a href="http://kko.to/H-uFIK0Px" target="_blank">Kakao 지도 바로가기</a>
 			</div>
 
