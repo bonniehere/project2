@@ -1230,7 +1230,9 @@
 			   flag=true;
 			   console.log("본인위치 마커생성");  
 			    // 지도 중심좌표를 접속위치로 변경합니다
-			    map.setCenter(hsp);    
+			    map.setCenter(hsp);  
+			    
+			    
 			 // 마커 생성후 마커 위도,경도,이름,패스워드 DB저장위한 폼
 				var resvIdx = $('input[name=resvIdx]').val();
 				var userNm = $('input[name=userNm]').val();
