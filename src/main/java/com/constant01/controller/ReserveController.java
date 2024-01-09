@@ -123,6 +123,7 @@ public class ReserveController {
 	public String userLocSave(ReserveDTO reserve,Model model) {
 		System.out.println("실시간유저좌표저장");
 		//여기서부터하면됨
+		rs.write(reserve);
 		return "home/reserveNew/map2";
 		
 	}
