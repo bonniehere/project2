@@ -118,6 +118,13 @@ public class ReserveController {
 		return "home/reserveNew/map2";
 		
 	}
-	
+	// 예약한 과 지도페이지 유저좌표확인   ------------------------------------------------------------------------------------------------
+	@RequestMapping(value = "home/reserveNew/userLocSave.do", method = RequestMethod.POST)
+	public String userLocSave(ReserveDTO reserve,Model model) {
+		System.out.println("실시간유저좌표저장");
+		//여기서부터하면됨
+		return "home/reserveNew/map2";
+		
+	}
 
 }
