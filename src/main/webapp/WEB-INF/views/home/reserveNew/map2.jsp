@@ -776,6 +776,9 @@
             <div class="inner fix">
             	<h2>진료 예약과 : ${list[0].selDeptNm}
             	<input type="hidden" name="selDeptNm" value="${list[0].selDeptNm}">
+            	<!-- 현재위치조회위한인풋 -->
+            	<input type="hidden" name="resvIdx" value="${list[0].resvIdx}">
+            	<input type="hidden" name="userNm" value="${list[0].userNm}">
             	</h2>
 <a href="javascript:fn_goMenu('/home/conts/101002003000000.do');" class="title_next">Next</a>
 
@@ -963,9 +966,7 @@
 					}
 				}
 			}
-			
-			console.log(contentNm+chaseX)
-			console.log(chaseX+1);
+
 			// 커스텀 오버레이에 표시할 내용입니다     
 			// HTML 문자열 또는 Dom Element 입니다 
 			hspcontent = '<div class ="label"><span class="left"></span><span class="center">'+contentNm[chaseX][chaseY]+'</span><span class="right"></span></div>';
@@ -1182,15 +1183,17 @@
 			var lon;
 			var options = {
 			      enableHighAccuracy: true,
-			      timeout: 5000,
+			      timeout: 3000,
 			      maximunAge: 0
 			};
-			
+			var userLat;
+			var userLon;
 			function success(position){
 			   console.log(position);
 			       lat = position.coords.latitude, // 위도
 			        lon = position.coords.longitude; // 경도
-			        
+			        userLat = lat.toString();
+			        userLon = lon.toString();
 			        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
 			         message = '<div style="padding:5px;">여기에 계신가요?!</div>'; // 인포윈도우에 표시될 내용입니다
 			         
@@ -1214,7 +1217,7 @@
 			var marker;
 			var flag = false;
 			function displayMarker(locPosition, message){
-			   console.log(1);
+			   
 			   if(flag){
 			      marker.setMap(null);
 			   }
@@ -1223,13 +1226,44 @@
 			      position: locPosition
 			   });
 			   marker.setMap(map);
+			   
 			   flag=true;
-			        
-			
+			   console.log("본인위치 마커생성");  
 			    // 지도 중심좌표를 접속위치로 변경합니다
-			    map.setCenter(hsp);      
+			    map.setCenter(hsp);    
+			 // 마커 생성후 마커 위도,경도,이름,패스워드 DB저장위한 폼
+				var resvIdx = $('input[name=resvIdx]').val();
+				var userNm = $('input[name=userNm]').val();
+				
+				console.log(resvIdx);
+				console.log(userNm);
+				console.log(userLat);
+				console.log(userLon);
+				
+				$.ajax({
+					type : "POST",
+					url  : "/home/reserveNew/userLocSave.do",
+					data : {
+						"resvIdx"		: resvIdx,
+						"userNm" 		: userNm,
+						"userLat" 		: userLat,
+						"userLon"   	: userLon
+					},
+					dataType : "text",
+					success  : function(){
+						
+						console.log("성공");
+					},
+					error:function(request,status,error){
+						console.log("실패");
+						alert("처리 중 오류가 발생되었습니다.\nerror:"+error+"request:"+request+"status:"+status);
+					}
+				});
+				
+				
 			}
-		
+			   
+			 
 	</script>		 
 					 
 					 
@@ -1992,6 +2026,7 @@ wcs_do();
 	$(document).ready(function(){
 		$("#btn"+(chaseX+1)+"F").css({"background-color":"white","color":"#1474d0"}); // css변경
 	});
+	
 </script>
 
 </body></html>
