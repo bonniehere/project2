@@ -98,6 +98,21 @@
 		font-weight: bold;
 		margin: 10px 17px 10px 17px;
 	}
+	
+	#dmap{
+		width: 100%;
+		height: 380px;
+		position: relative;
+	
+	}
+	
+	#map{
+		position: relative;
+	
+	}
+	.label{
+		z-index: 5;
+	}
 
 	
 	</style>
@@ -913,7 +928,8 @@
 					 
 					 
 <div class="map_area">
-				<div class="map" id="map" style="width:100%;height:350px;">					 
+				<div class="map" id="map" style="width:100%;height:350px; z-index:1;">
+					<!-- <img id= "dmap" src="../../../../resources/img/map/dmap_1.jpg" style="z-index:5; width:350px; height:350px;"> -->				 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4964815528aa3bf5334721911ccdc6964964815528aa3bf5334721911ccdc696"></script>
 	<script>
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -928,6 +944,10 @@
 	
 			// 마우스 휠과 모바일 터치를 이용한 지도 확대, 축소를 막는다
 			map.setZoomable(false);  
+			
+			$(document).ready(function(){
+				$(".map").append('<img id= "dmap" src="../../../../resources/img/map/dmap_1.jpg" style="z-index:2; width:350px; height:350px;">');
+			});
 			
 			var flag1=false;
 			var hspcontent = [];
@@ -964,7 +984,7 @@
 					for(j=0; j < contentNm1.length; j++){
 					// 커스텀 오버레이에 표시할 내용입니다     
 					// HTML 문자열 또는 Dom Element 입니다 
-					hspcontent[j] = '<div class ="label"><span class="left"></span><span class="center">'+contentNm1[j]+'</span><span class="right"></span></div>';
+					hspcontent[j] = '<div class ="label" sytle="z-index:10;"><span class="left"></span><span class="center">'+contentNm1[j]+'</span><span class="right"></span></div>';
 		
 					// 커스텀 오버레이가 표시될 위치입니다 
 					hspposition[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
