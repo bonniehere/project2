@@ -1,22 +1,13 @@
 package com.constant01.controller;
 
-import java.util.ArrayList;
-
-import javax.servlet.http.HttpSession;
-
-import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.constant01.model.MemberDTO;
 import com.constant01.model.ReserveDTO;
+import com.constant01.model.MapDTO;
 import com.constant01.service.MemberService;
 import com.constant01.service.ProfService;
 import com.constant01.service.ReserveService;
@@ -120,12 +111,24 @@ public class ReserveController {
 	}
 	// 예약한 과 지도페이지 유저좌표확인   ------------------------------------------------------------------------------------------------
 	@RequestMapping(value = "home/reserveNew/userLocSave.do", method = RequestMethod.POST)
-	public String userLocSave(ReserveDTO reserve,Model model) {
+	public String userLocSave(MapDTO map,Model model) {
 		System.out.println("실시간유저좌표저장");
 		//여기서부터하면됨
-		rs.write(reserve);
+		rs.write2(map);
+		model.addAttribute("maplist", rs.maplist(map));
 		return "home/reserveNew/map2";
 		
 	}
+	
+	@RequestMapping(value = "home/reserveNew/map3.do", method = RequestMethod.POST)
+	public String map3(MapDTO map,Model model) {
+		
+		model.addAttribute("maplist", rs.maplist(map));
+		System.out.println(rs.maplist(map));
+		return "home/reserveNew/map3";
+	
+	}
+	
+	
 
 }

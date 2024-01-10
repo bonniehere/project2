@@ -16,12 +16,17 @@
 	<select id="list2" resultType="com.constant01.model.ReserveDTO">
 		select * from reserve where selProfNo=#{selProfNo} order by resvDd;
 	</select>
+	
 	<select id="list3" resultType="com.constant01.model.ReserveDTO">
 		select * from reserve where num=#{num} order by resvDd;
 	</select>
 	
 	<insert id="write2">
-		insert into map values(#{resvIdx},#{userNm},#{userLat},#{userLon});
+		insert into map values(#{resvIdx},#{userNm},#{userLat},#{userLon},0);
 	</insert>
+	
+	<select id="maplist" resultType="com.constant01.model.MapDTO">
+		select * from map where resvIdx=#{resvIdx} order by num desc;
+	</select>
 
 </mapper>
