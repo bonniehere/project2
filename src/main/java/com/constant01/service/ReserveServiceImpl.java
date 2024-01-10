@@ -42,4 +42,7 @@ public class ReserveServiceImpl implements ReserveService{
 		// 회원상세내용
 		return rm.maplist(map);
 	}
+	public void delete(MapDTO map) {
+		rm.delete(map);
+	}
 }

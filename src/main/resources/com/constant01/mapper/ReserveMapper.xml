@@ -22,11 +22,17 @@
 	</select>
 	
 	<insert id="write2">
-		insert into map values(#{resvIdx},#{userNm},#{userLat},#{userLon},0);
+		insert into map values(#{resvIdx},#{userNm},#{userLat},#{userLon},0,default);
 	</insert>
 	
 	<select id="maplist" resultType="com.constant01.model.MapDTO">
 		select * from map where resvIdx=#{resvIdx} order by num desc;
 	</select>
+	
+	<delete id="delete">
+	<![CDATA[
+		delete from map where resvIdx = #{resvIdx} and liveTime < DATE_ADD(NOW(), INTERVAL -60 SECOND)
+	]]>
+	</delete>
 
 </mapper>
