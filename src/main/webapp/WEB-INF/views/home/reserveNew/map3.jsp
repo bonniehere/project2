@@ -105,6 +105,11 @@
 		font-weight: bold;
 	}
 	
+	.hsp{
+		color: blue;
+		font-weight: bold;
+	}
+	
 	</style>
 	
 	
@@ -934,6 +939,13 @@
 			        level: 2 // 지도의 확대 레벨 
 			}; 
 			var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+			
+			// 지도에 확대 축소 컨트롤을 생성한다
+			var zoomControl = new kakao.maps.ZoomControl();
+
+			// 지도의 우측에 확대 축소 컨트롤을 추가한다
+			map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+			
 			// 마우스 드래그와 모바일 터치를 이용한 지도 이동을 막는다
 			//map.setDraggable(false);		
 	
@@ -948,7 +960,8 @@
 			var positionlon = $('input[name=userLon]').val();
 			var pacontentNm = $('input[name=userNm]').val();
 			
-			console.log(pacontentNm);
+			
+			
 			/*
 			var contentNm2 = ["암병원","소화기센터","가정의학과","감염내과","내분비내과","엘리베이터","엘리베이터","외과","치과","피부과","정신건강의학과","내시경실"];
 			var contentNm3 = ["소아청소년과","재활의학과","병리과","진단검사의학과","간호본부","엘리베이터","엘리베이터","주사실","호흡기알레르기내과","방사선종양학과","의료기기용품점","의용공학실"];
@@ -1004,7 +1017,39 @@
 			});
 			// 커스텀 오버레이를 지도에 표시합니다
 			pacustomOverlay.setMap(map);
-		
+			
+			
+			
+			
+			//병원 위치 마커 찍기
+			
+			var hsp = new kakao.maps.LatLng(35.54297, 129.33657);
+			var mppositionlat = (35.54297+parseFloat(positionlat))/2;
+			var mppositionlon = (129.33657+parseFloat(positionlon))/2;
+			var mapposition = new kakao.maps.LatLng(mppositionlat, mppositionlon);
+			
+			
+			//위치 정보 가져오기
+
+			// 마커를 생성합니다
+			var hspmarker = new kakao.maps.Marker({
+			    position: hsp
+			});
+			
+			hspcontent = '<div class ="label"><span class="left"></span><span class="hsp">병원</span><span class="right"></span></div>';
+			
+			// 커스텀 오버레이를 생성합니다
+			hspcustomOverlay = new kakao.maps.CustomOverlay({
+			    position: hsp,
+			    content: hspcontent   
+			});
+			
+			// 마커가 지도 위에 표시되도록 설정합니다
+			hspcustomOverlay.setMap(map);
+			   
+			map.setCenter(mapposition);
+			
+			
 			
 			/*
 			function fn_gogo(i){
