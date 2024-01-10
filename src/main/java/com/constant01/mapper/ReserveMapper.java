@@ -19,5 +19,6 @@ public interface ReserveMapper {
 	public void write2(MapDTO map);
 	
 	public ArrayList<MapDTO> maplist(MapDTO map);
-
+	
+	public void delete(MapDTO map);
 }

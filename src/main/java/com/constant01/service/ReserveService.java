@@ -20,4 +20,6 @@ public interface ReserveService {
 	
 	public ArrayList<MapDTO> maplist(MapDTO map);
 	
+	public void delete(MapDTO map);
+	
 }

@@ -115,6 +115,7 @@ public class ReserveController {
 		System.out.println("실시간유저좌표저장");
 		//여기서부터하면됨
 		rs.write2(map);
+		rs.delete(map);
 		model.addAttribute("maplist", rs.maplist(map));
 		return "home/reserveNew/map2";
 		
