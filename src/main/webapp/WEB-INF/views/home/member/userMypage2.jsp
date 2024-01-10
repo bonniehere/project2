@@ -11,7 +11,7 @@
             <meta http-equiv="Expires" content="-1">
             <meta http-equiv="Pragma" content="no-cache">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimun-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi, viewport-fit=cover">
-	<title>중앙대학교광명병원 | 회원정보</title>
+	<title>CONSTANT 메디컬 | 의사 정보</title>
 	<meta name="description" content="진료문의 1811-7800 / 환자중심의 디지털 혁신 병원, 수도권 서남부 거점 대학병원">
 	<meta name="keywords" content="중앙대학교의료원, 중앙대학교병원, 중앙대학교광명병원, 진료과, 진료안내, 진료예약, 병원소개, 건강정보, 의료진, 고객서비스, 처방정보, 건강증진센터, 증명서발급">
 	<meta name="title" content="중앙대학교광명병원">
@@ -280,6 +280,21 @@
 		function fn_PrintDiv(){
 			$(".popup_content").printThis();
 		}
+		
+		
+		//환자 위치 보기
+		function fn_maplist(obj){
+			var oTd = $(obj).parent();
+			G_Util.newFormSubmit({
+				"action" : "/home/reserveNew/map3.do",
+				"param"  : {
+					"resvIdx"      : oTd.find("input[name=resvIdx]").val()
+					
+				}
+			
+			})
+		}
+		
 	</script>
 
 </head>
@@ -823,6 +838,8 @@
 										<th>예약일시</th>
 										<th>취소</th>
 										<th>접수증</th>
+										<!-- 예약 지도 보기 내가 추가함 -->
+										<th>환자 위치 확인</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -855,6 +872,14 @@
 														<input type="hidden" name="i_togoplace" value="2층 치과">
 														<input type="hidden" name="i_prcpyn" value="N">
 														<a href="javascript:void(0);" class="chip2_sty2" onclick="javascript:fn_ResvPop(this);">출력</a>
+													</td>
+													
+													<td>
+														<input type="hidden" name="resvIdx" value="${list.resvIdx}">
+
+														<a href="javascript:void(0);" class="chip2_sty2" onclick="javascript:fn_maplist(this);">지도</a>
+														<!-- 예약 지도 보기 내가 추가함 -->
+														<!-- <a href="javascript:void(0);" class="chip2_sty2" onclick="javascript:fn_ResMap(${list.selDeptNm},${list.userNm});">지도</a> -->
 													</td>
 												</tr>
 											</c:forEach>

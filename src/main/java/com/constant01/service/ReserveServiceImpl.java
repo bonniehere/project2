@@ -37,4 +37,9 @@ public class ReserveServiceImpl implements ReserveService{
 	public void write2(MapDTO map) {
 		rm.write2(map);
 	}
+	
+	public ArrayList<MapDTO> maplist(MapDTO map) {
+		// 회원상세내용
+		return rm.maplist(map);
+	}
 }
