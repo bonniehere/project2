@@ -923,7 +923,7 @@
 					 
 					 
 <div class="map_area">
-				<div class="map" id="map" style="width:100%;height:350px;">					 
+				<div class="map" id="map" style="width:380px;height:380px; z-index:1;">					 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4964815528aa3bf5334721911ccdc6964964815528aa3bf5334721911ccdc696"></script>
 	<script>
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -969,7 +969,7 @@
 
 			// 커스텀 오버레이에 표시할 내용입니다     
 			// HTML 문자열 또는 Dom Element 입니다 
-			hspcontent = '<div class ="label"><span class="left"></span><span class="center">'+contentNm[chaseX][chaseY]+'</span><span class="right"></span></div>';
+			hspcontent = '<div class ="label" style="z-index:3;><span class="left"></span><span class="center">'+contentNm[chaseX][chaseY]+'</span><span class="right"></span></div>';
 
 			// 커스텀 오버레이가 표시될 위치입니다 
 			hspposition = new kakao.maps.LatLng(positionlat[chaseY], positionlon[chaseY]);  
@@ -981,7 +981,12 @@
 			});
 			// 커스텀 오버레이를 지도에 표시합니다
 			hspcustomOverlay.setMap(map);
-
+			
+			var a = $(".label").parent();
+			var b = $(a).parent();
+			$(document).ready(function(){
+				$(b).append('<div class ="label" id="labelMap" style="position: absolute; z-index: -1; width: 350px; height:350px; left: 20px; top: 8px;"><span class="left"></span><span class="center"><img id= "dmap" src="../../../../resources/img/map/dmap_1.jpg" width:100%; height:100%;></span><span class="right"></span></div>');
+			});
 			
 			/*
 			function fn_gogo(i){

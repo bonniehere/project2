@@ -111,7 +111,7 @@
 	
 	}
 	.label{
-		z-index: 5;
+		
 	}
 
 	
@@ -928,8 +928,7 @@
 					 
 					 
 <div class="map_area">
-				<div class="map" id="map" style="width:100%;height:350px; z-index:1;">
-					<!-- <img id= "dmap" src="../../../../resources/img/map/dmap_1.jpg" style="z-index:5; width:350px; height:350px;"> -->				 
+				<div class="map" id="map" style="width:380px;height:380px; z-index:1;">				 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4964815528aa3bf5334721911ccdc6964964815528aa3bf5334721911ccdc696"></script>
 	<script>
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -944,11 +943,22 @@
 	
 			// 마우스 휠과 모바일 터치를 이용한 지도 확대, 축소를 막는다
 			map.setZoomable(false);  
-			
-			$(document).ready(function(){
-				$(".map").append('<img id= "dmap" src="../../../../resources/img/map/dmap_1.jpg" style="z-index:2; width:350px; height:350px;">');
-			});
-			
+			/*
+			function createDiv() {
+				  // 1. <div> element 만들기
+				  const newDiv = document.createElement('div');
+				  
+				  // 2. <div>에 들어갈 text node 만들기
+				  const newImg = document.querySeletor("img");
+				  newImg.src = "../../../../resources/img/map/dmap_1.jpg";
+				  
+				  // 3. <div>에 Img node 붙이기
+				  newDiv.appendChild(newImg);
+				  
+				  // 4. <body>에 1에서 만든 <div> element 붙이기
+				  document.body.appendChild(newDiv);
+			}
+			*/
 			var flag1=false;
 			var hspcontent = [];
 			var hspposition = [];
@@ -977,6 +987,7 @@
 					hspcustomOverlay[9].setMap(null);
 					hspcustomOverlay[10].setMap(null);
 					hspcustomOverlay[11].setMap(null);
+					$("#labelMap").remove();
 				}
 				if(i==1){
 			        $("input:radio[name='radioFloor']:radio[id="+i+"F]").prop('checked', true); // 선택하기
@@ -984,7 +995,7 @@
 					for(j=0; j < contentNm1.length; j++){
 					// 커스텀 오버레이에 표시할 내용입니다     
 					// HTML 문자열 또는 Dom Element 입니다 
-					hspcontent[j] = '<div class ="label" sytle="z-index:10;"><span class="left"></span><span class="center">'+contentNm1[j]+'</span><span class="right"></span></div>';
+					hspcontent[j] = '<div class ="label" style="z-index:3;"><span class="left"></span><span class="center">'+contentNm1[j]+'</span><span class="right"></span></div>';
 		
 					// 커스텀 오버레이가 표시될 위치입니다 
 					hspposition[j] = new kakao.maps.LatLng(positionlat[j], positionlon[j]);  
@@ -1154,8 +1165,13 @@
 					// ------------------
 					flag1 = true;
 				}
-				
+				var a = $(".label").parent();
+				var b = $(a).parent();
+				$(document).ready(function(){
+					$(b).append('<div class ="label" id="labelMap" style="position: absolute; z-index: -1; width: 350px; height:350px; left: 20px; top: -7px;"><span class="left"></span><span class="center"><img id= "dmap" src="../../../../resources/img/map/dmap_1.jpg" width:100%; height:100%;></span><span class="right"></span></div>');
+				});
 			}//gogo()함수 종료
+			
 			var hsp = new kakao.maps.LatLng(35.54297, 129.33657);
 			//위치 정보 가져오기
 			var lat;
