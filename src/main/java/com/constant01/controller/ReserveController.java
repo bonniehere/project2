@@ -129,6 +129,14 @@ public class ReserveController {
 		return "home/reserveNew/map3";
 	
 	}
+	@RequestMapping(value = "home/reserveNew/map3.do", method = RequestMethod.GET)
+	public String map33(MapDTO map,Model model) {
+		
+		model.addAttribute("maplist", rs.maplist(map));
+		System.out.println(rs.maplist(map));
+		return "home/reserveNew/map3";
+	
+	}
 	
 	
 

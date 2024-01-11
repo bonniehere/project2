@@ -962,76 +962,63 @@
 			
 			
 			
-			/*
-			var contentNm2 = ["암병원","소화기센터","가정의학과","감염내과","내분비내과","엘리베이터","엘리베이터","외과","치과","피부과","정신건강의학과","내시경실"];
-			var contentNm3 = ["소아청소년과","재활의학과","병리과","진단검사의학과","간호본부","엘리베이터","엘리베이터","주사실","호흡기알레르기내과","방사선종양학과","의료기기용품점","의용공학실"];
-			var contentNm4 = ["치과교정과","수술실","마취회복실","산모치료실","신생아실","엘리베이터","엘리베이터","당일수술센터","산부인과","영상의학과","안과","외래약국"];
-			var contentNm5 = ["신장내과","신경외과","신경과","순환기내과","소화기내과","엘리베이터","엘리베이터","화장실","성형외과","마취통증의학과","류마티스내과","내분비과"];
-			var contentNm6 = ["심장혈관흉부외과","외과","입원내과","정형외과","구강악안면외과","엘리베이터","엘리베이터","치과보존과-보철과","혈액종양내과","편의점","야외공원","휴게실"];
-			var contentNm7 = ["701호실","702호실","703호실","704호실","705호실","엘리베이터","엘리베이터","706호실","707호실","708호실","709호실","710호실"];
-			var contentNm = [contentNm1,contentNm2,contentNm3,contentNm4,contentNm5,contentNm6,contentNm7];
-			
-			var chaseX; // Nm넘버값,층수
-			var chaseY; // 배열 n번째값,열값
-			var selDeptNm = $('input[name=selDeptNm]').val();
-			//해당문자열로 진료과찾기
-			for(i=0; i < contentNm.length; i++){
-				for(j=0; j < positionlat.length; j++){
-					if(selDeptNm == contentNm[i][j]){
-						console.log("성공");
-						chaseX = i, chaseY = j;
-						
-					}
-				}
-			}
-			*/
-			
-			//위치 정보 가져오기
-
+			var lat;
+			var lon;
 			var options = {
 			      enableHighAccuracy: true,
 			      timeout: 3000,
 			      maximunAge: 0
 			};
-			/*
+			
 			function success(position){
 			   console.log(position);
-			       lat = position.coords.latitude, // 위도
-			        lon = position.coords.longitude; // 경도
-			        userLat = lat.toString(); // 위도
-			        userLon = lon.toString(); // 경도
+			       lat = positionlat, // 위도
+			        lon = positionlon; // 경도
+			        
 			        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-						};
-					*/
-			// 커스텀 오버레이에 표시할 내용입니다     
-			// HTML 문자열 또는 Dom Element 입니다 
-			pacontent = '<div class ="label"><span class="left"></span><span class="center">'+pacontentNm+'</span><span class="right"></span></div>';
-
-			// 커스텀 오버레이가 표시될 위치입니다 
-			paposition = new kakao.maps.LatLng(positionlat, positionlon);  
-	
-			// 커스텀 오버레이를 생성합니다
-			pacustomOverlay = new kakao.maps.CustomOverlay({
-			    position: paposition,
-			    content: pacontent   
-			});
-			// 커스텀 오버레이를 지도에 표시합니다
-			pacustomOverlay.setMap(map);
+			         message = '<div style="padding:5px;">'+pacontentNm+' 환자</div>'; // 인포윈도우에 표시될 내용입니다
+			         
+			           // 마커와 인포윈도우를 표시합니다
+			           displayMarker(locPosition, message);
+			   
+			};
+			
+			function error(err){
+			   console.log(err);
+			};
 			
 			
+			//HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
+			if (navigator.geolocation) {
+			    
+			    var na = navigator.geolocation.watchPosition(success,error,options);
+			    console.log(na);
+			}
+			
+			var marker;
+			var flag = false;
+			function displayMarker(locPosition, message){
+			   console.log(1);
+			   if(flag){
+			      marker.setMap(null);
+			   }
+			   //마커를 생성합니다
+			   marker = new kakao.maps.Marker({
+			      position: locPosition
+			   });
+			   marker.setMap(map);
+			   flag=true;
+			        
+			   
+			}
 			
 			
 			//병원 위치 마커 찍기
 			
-			var hsp = new kakao.maps.LatLng(35.54297, 129.33657);
-			var mppositionlat = (35.54297+parseFloat(positionlat))/2;
-			var mppositionlon = (129.33657+parseFloat(positionlon))/2;
-			var mapposition = new kakao.maps.LatLng(mppositionlat, mppositionlon);
-			
-			
 			//위치 정보 가져오기
 
 			// 마커를 생성합니다
+			var hsp = new kakao.maps.LatLng(35.54297, 129.33657);
 			var hspmarker = new kakao.maps.Marker({
 			    position: hsp
 			});
@@ -1047,6 +1034,10 @@
 			// 마커가 지도 위에 표시되도록 설정합니다
 			hspcustomOverlay.setMap(map);
 			   
+			var mppositionlat = (35.54297+parseFloat(positionlat))/2;
+			var mppositionlon = (129.33657+parseFloat(positionlon))/2;
+			var mapposition = new kakao.maps.LatLng(mppositionlat, mppositionlon);
+			
 			map.setCenter(mapposition);
 			
 			
@@ -2094,6 +2085,26 @@ wcs_do();
 </script>
 
 </em>
-
+<script type="text/javascript">
+function autoChase(){
+	var resvIdx = $('input[name=resvIdx]').val();
+	$.ajax({
+		type : "POST",
+		url  : "/home/reserveNew/map3.do",
+		data : {
+			"resvIdx"		: resvIdx
+		},
+		dataType : "text",
+		success  : function(){
+			console.log("성공");
+		},
+		error:function(request,status,error){
+			console.log("실패");
+			alert("처리 중 오류가 발생되었습니다.\nerror:"+error+"request:"+request+"status:"+status);
+		}
+	});
+}
+setInterval('autoChase()', 3000); // 3초 마다 함수실행
+</script>
 
 </body></html>
