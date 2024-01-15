@@ -879,7 +879,7 @@
 			<div class="inner fix">
 				<ul class="location fix">
 					<li class="home">
-                        <a href="/"><span class="skip">홈으로 가기</span></a>
+                        <a href="/home.do" style="background: #fff url(/resources/img/ico_home.png)no-repeat center center;"><span class="skip">홈으로 가기</span></a>
                     </li>
                     <li>
                     	<a href="javascript:void(0);">회원서비스<span class="location_icon"></span></a>

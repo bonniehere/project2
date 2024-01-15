@@ -39,7 +39,7 @@
 	<script type="text/javascript" src="../../../../resources/js/fullpage.js"></script>
 	<script type="text/javascript" src="../../../../resources/js/scrolla.jquery.js"></script>
 	<script type="text/javascript" src="../../../../resources/js/common.js"></script>
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<!-- 내가 만든 css 
 	<link type="text/css" rel="stylesheet" href="../../../../resources/css/map_c.css">
 	이쉑기 적용 안 됨 ㅡㅡ
@@ -782,10 +782,10 @@
             	<h2>예약 환자 : ${maplist[0].userNm}
             	
             	<!-- 현재위치조회위한인풋 -->
-            	<input type="hidden" name="resvIdx" value="${maplist[0].resvIdx}">
+            	<input type="hidden" name="resvIdx" id="resvIdx" value="${maplist[0].resvIdx}">
             	<input type="hidden" name="userNm" value="${maplist[0].userNm}">
-            	<input type="hidden" name="userLat" value="${maplist[0].userLat}">
-            	<input type="hidden" name="userLon" value="${maplist[0].userLon}">
+            	<input type="hidden" name="userLat" id="userLat" value="${maplist[0].userLat}">
+            	<input type="hidden" name="userLon" id="userLon" value="${maplist[0].userLon}">
             	</h2>
 <a href="javascript:fn_goMenu('/home/conts/101002003000000.do');" class="title_next">Next</a>
 
@@ -962,27 +962,29 @@
 			
 			
 			
-			var lat;
-			var lon;
+			//var lat;
+			//var lon;
 			var options = {
 			      enableHighAccuracy: true,
-			      timeout: 3000,
+			      timeout: 3000000,
 			      maximunAge: 0
 			};
 			
 			function success(position){
 			   console.log(position);
-			       lat = positionlat, // 위도
-			        lon = positionlon; // 경도
-			        
-			        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+			   console.log("시작위치");
+			       //lat = positionlat, // 위도
+			       //lon = positionlon; // 경도
+			        positionlat = $('input[name=userLat]').val();
+			        positionlon = $('input[name=userLon]').val();
+			        var locPosition = new kakao.maps.LatLng(positionlat, positionlon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
 			         message = '<div style="padding:5px;">'+pacontentNm+' 환자</div>'; // 인포윈도우에 표시될 내용입니다
 			         
 			           // 마커와 인포윈도우를 표시합니다
 			           displayMarker(locPosition, message);
 			   
 			};
-			
+			//여기까지돌리기
 			function error(err){
 			   console.log(err);
 			};
@@ -998,7 +1000,6 @@
 			var marker;
 			var flag = false;
 			function displayMarker(locPosition, message){
-			   console.log(1);
 			   if(flag){
 			      marker.setMap(null);
 			   }
@@ -1006,6 +1007,7 @@
 			   marker = new kakao.maps.Marker({
 			      position: locPosition
 			   });
+			   console.log("마커갱신");
 			   marker.setMap(map);
 			   flag=true;
 			        
@@ -1018,7 +1020,7 @@
 			//위치 정보 가져오기
 
 			// 마커를 생성합니다
-			var hsp = new kakao.maps.LatLng(35.54297, 129.33657);
+			var hsp = new kakao.maps.LatLng(35.54297, 129.33657); //병원 중심좌표
 			var hspmarker = new kakao.maps.Marker({
 			    position: hsp
 			});
@@ -1335,44 +1337,6 @@
 
 </div>
 
-<!-- 내가 추가한 script -->
-	
-	
-	<script>
-	/*
-	$(document).ready(function(){	
-	
-    var floor = document.getElementsByClassName("floor");
-
-    function handleClick(event) {
-      console.log(event.target);
-      // console.log(this);
-      // 콘솔창을 보면 둘다 동일한 값이 나온다
-
-      console.log(event.target.classList);
-
-      if (event.target.classList[1] === "clicked") {
-        event.target.classList.remove("clicked");
-      } else {
-        for (var i = 0; i < floor.length; i++) {
-          floor[i].classList.remove("clicked");
-        }
-
-        event.target.classList.add("clicked");
-      }
-    }
-
-    function init() {
-      for (var i = 0; i < floor.length; i++) {
-        floor[i].addEventListener("click", handleClick);
-      }
-    }
-
-    init();
-    
-	})
-	*/
-    </script>
 
 			<div class="map_info">
 				<ul class="floortit">
@@ -2090,19 +2054,30 @@ function autoChase(){
 	var resvIdx = $('input[name=resvIdx]').val();
 	$.ajax({
 		type : "POST",
-		url  : "/home/reserveNew/map3.do",
+		url  : "/home/reserveNew/UserLocLoad.do",
 		data : {
 			"resvIdx"		: resvIdx
 		},
-		dataType : "text",
-		success  : function(){
+		dataType : "json",
+		success  : function(data){
+			document.querySelector("#userLat").value = data[0].userLat;
+			document.querySelector("#userLon").value = data[0].userLon;
+			qq = document.querySelector("#userLat").value; //갱신 위도
+			ww = document.querySelector("#userLon").value; //갱신 경도
 			console.log("성공");
+			var locPosition = new kakao.maps.LatLng(qq, ww), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+	         message = '<div style="padding:5px;">'+pacontentNm+' 환자</div>'; // 인포윈도우에 표시될 내용입니다
+	         
+	           // 마커와 인포윈도우를 표시합니다
+	           displayMarker(locPosition, message);
+			//술먹어서 생각이안남 함수발동을 위한 트리거
 		},
 		error:function(request,status,error){
 			console.log("실패");
 			alert("처리 중 오류가 발생되었습니다.\nerror:"+error+"request:"+request+"status:"+status);
 		}
 	});
+	
 }
 setInterval('autoChase()', 3000); // 3초 마다 함수실행
 </script>

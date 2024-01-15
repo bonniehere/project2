@@ -707,17 +707,17 @@ $(document).ready(function(){
 	<input type="hidden" id="hspCd" name="hspCd" value="${param.hspCd}">
 	<input type="hidden" id="memYn" name="memYn" value="${param.memYn}">
 	<!-- 예약자 정보 -->
-	<input type="hidden" id="userId" name="userId" value="<%=member.getUserId() %>">
-	<input type="hidden" id="userType" name="userType" value="<%=member.getUserStat() %>">
+	<input type="hidden" id="userId" name="userId" value="${param.userId}">
+	<input type="hidden" id="userType" name="userType" value="${param.userType}">
 	<input type="hidden" id="resvType" name="resvType" value="me">
-	<input type="hidden" id="userNm" name="userNm" value="<%=member.getUserNm() %>">
-	<input type="hidden" id="gender" name="gender" value="<%=member.getSex() %>">
-	<input type="hidden" id="ptNo" name="ptNo" value="<%=member.getUserId() %>"> <!-- 환자넘버 아이디로변경 -->
-	<input type="hidden" id="userBirthDt" name="userBirthDt" value="<%=member.getBirthDt() %>">
-	<input type="hidden" id="phone" name="phone" value="<%=member.getTelNo() %>">
-	<input type="hidden" id="zipCd" name="zipCd" value="<%=member.getZipCd() %>">
-	<input type="hidden" id="addr" name="addr" value="<%=member.getAddr() %>">
-	<input type="hidden" id="detlAddr" name="detlAddr" value="<%=member.getDetlAddr() %>">
+	<input type="hidden" id="userNm" name="userNm" value="${param.userNm}">
+	<input type="hidden" id="gender" name="gender" value="${param.gender}">
+	<input type="hidden" id="ptNo" name="ptNo" value="${param.ptNo}"> <!-- 환자넘버 아이디로변경 -->
+	<input type="hidden" id="userBirthDt" name="userBirthDt" value="${param.userBirthDt}">
+	<input type="hidden" id="phone" name="phone" value="${param.phone}">
+	<input type="hidden" id="zipCd" name="zipCd" value="${param.zipCd}">
+	<input type="hidden" id="addr" name="addr" value="${param.addr}">
+	<input type="hidden" id="detlAddr" name="detlAddr" value="${param.detlAddr}">
 	<!--  진협 예약시 추가되는 파라메타  -->
 	<input type="hidden" id="ssnNo1" name="ssnNo1" value="">
 	<input type="hidden" id="ssnNo2" name="ssnNo2" value="">
