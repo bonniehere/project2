@@ -943,22 +943,7 @@
 	
 			// 마우스 휠과 모바일 터치를 이용한 지도 확대, 축소를 막는다
 			map.setZoomable(false);  
-			/*
-			function createDiv() {
-				  // 1. <div> element 만들기
-				  const newDiv = document.createElement('div');
-				  
-				  // 2. <div>에 들어갈 text node 만들기
-				  const newImg = document.querySeletor("img");
-				  newImg.src = "../../../../resources/img/map/dmap_1.jpg";
-				  
-				  // 3. <div>에 Img node 붙이기
-				  newDiv.appendChild(newImg);
-				  
-				  // 4. <body>에 1에서 만든 <div> element 붙이기
-				  document.body.appendChild(newDiv);
-			}
-			*/
+			
 			var flag1=false;
 			var hspcontent = [];
 			var hspposition = [];
@@ -1235,44 +1220,6 @@
 
 </div>
 
-<!-- 내가 추가한 script -->
-	
-	
-	<script>
-	/*
-	$(document).ready(function(){	
-	
-    var floor = document.getElementsByClassName("floor");
-
-    function handleClick(event) {
-      console.log(event.target);
-      // console.log(this);
-      // 콘솔창을 보면 둘다 동일한 값이 나온다
-
-      console.log(event.target.classList);
-
-      if (event.target.classList[1] === "clicked") {
-        event.target.classList.remove("clicked");
-      } else {
-        for (var i = 0; i < floor.length; i++) {
-          floor[i].classList.remove("clicked");
-        }
-
-        event.target.classList.add("clicked");
-      }
-    }
-
-    function init() {
-      for (var i = 0; i < floor.length; i++) {
-        floor[i].addEventListener("click", handleClick);
-      }
-    }
-
-    init();
-    
-	})
-	*/
-    </script>
 
 			<div class="map_info">
 				<ul class="floortit">
@@ -1287,13 +1234,7 @@
 			<!-- 	<a href="http://kko.to/H-uFIK0Px" target="_blank">Kakao 지도 바로가기</a> -->
 			</div>
 			<div class="allfloor"><a id="af" href="/home/reserveNew/floor.do">전층안내</a></div>
-			<script type="text/javascript">
-				function fn_go(i){
-					if(i==1){
-						$(".label1F.2").text("<span class="left"></span><span class="center">치과2222222222</span><span class="right"></span>");
-					}
-				}
-			</script>
+		
 			
 
 			<div class="ssgap"></div>

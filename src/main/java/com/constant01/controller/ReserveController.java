@@ -105,7 +105,7 @@ public class ReserveController {
 		return "home/reserveNew/map";
 	
 	}
-	// 예약한 과 지도 띄우기 !!!    ------------------------------------------------------------------------------------------------
+	// 예약한 과 지도 띄우기    ------------------------------------------------------------------------------------------------
 	@RequestMapping(value = "home/reserveNew/map2.do", method = RequestMethod.POST)
 	public String map2(ReserveDTO reserve,Model model) {
 		System.out.println("맵2");
@@ -135,16 +135,7 @@ public class ReserveController {
 	
 	}
 	@ResponseBody
-	/*
-	@RequestMapping(value = "home/reserveNew/UserLocLoad.do", method = RequestMethod.POST)
-	public String UserLocLoad(MapDTO map,Model model) {
-		
-		model.addAttribute("maplist", rs.maplist(map));
-		System.out.println(rs.maplist(map));
-		return "home/reserveNew/map3";
 	
-	}
-	*/
 	@RequestMapping(value = "home/reserveNew/UserLocLoad.do", method = RequestMethod.POST)
 	public ResponseEntity<?> UserLocLoad(MapDTO map, Model model, HttpSession session) {
 		return new ResponseEntity<>(rs.maplist(map), HttpStatus.OK);

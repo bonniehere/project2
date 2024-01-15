@@ -881,8 +881,7 @@
 														<input type="hidden" name="resvIdx" value="${list.resvIdx}">
 														<input type="hidden" name="num" value="${list.num}">
 														<a href="javascript:void(0);" class="chip2_sty2" onclick="javascript:fn_ResMap(this);">지도</a>
-														<!-- 예약 지도 보기 내가 추가함 -->
-														<!-- <a href="javascript:void(0);" class="chip2_sty2" onclick="javascript:fn_ResMap(${list.selDeptNm},${list.userNm});">지도</a> -->
+														
 													</td>
 												</tr>
 											</c:forEach>
@@ -890,44 +889,6 @@
 								
 										
 
-											<!--     
-											<tr>
-												<td>1</td>
-												
-												<td>  (${detail.userId })</td>
-												<td>${detail.userDeptNm }</td>
-												<td>${detail.userProfNm }</td>
-												<td>
-													
-													${detail.resvDd } ${detail.resvHh }
-												</td>
-												<td>
-													
-													
-													
-														<a href="javascript:void(0);" onclick="javascript:fn_CancelResv(this);" class="chip2_sty0">취소</a>
-													
-												</td>
-												<td>
-													
-													<input type="hidden" name="i_resvIdx" value="모델로 값 받아서 입력">
-													<input type="hidden" name="i_bforddd" value="20240116">
-													<input type="hidden" name="i_bfcretno" value="2">
-													<input type="hidden" name="i_rsrvflag" value="9">
-													<input type="hidden" name="i_ptNo" value="00101026">
-													<input type="hidden" name="i_resvUserNm" value="정순욱">
-													<input type="hidden" name="i_resvBrd" value="1993-03-24">
-													<input type="hidden" name="i_resvMobileNo" value="010-8561-9220">
-													<input type="hidden" name="i_deptKorNm" value="치과">
-													<input type="hidden" name="i_profKorNm" value="박성원">
-													<input type="hidden" name="i_resvDd" value="2024-01-16">
-													<input type="hidden" name="i_resvHh" value="10:30">
-													<input type="hidden" name="i_togoplace" value="2층 치과">
-													<input type="hidden" name="i_prcpyn" value="N">
-													<a href="javascript:void(0);" class="chip2_sty2" onclick="javascript:fn_ResvPop(this);">출력</a>
-												</td>
-											</tr>
-											 -->
 
 								</tbody>
 							</table>
