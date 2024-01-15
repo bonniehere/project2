@@ -707,7 +707,7 @@ $(document).ready(function(){
 	<input type="hidden" id="hspCd" name="hspCd" value="${param.hspCd}">
 	<input type="hidden" id="memYn" name="memYn" value="${param.memYn}">
 	<!-- 예약자 정보 -->
-	<input type="hidden" id="userId" name="userId" value="${param.userId}">
+	<input type="hidden" id="userId" name="userId" value="<%=member.getUserId() %>">
 	<input type="hidden" id="userType" name="userType" value="${param.userType}">
 	<input type="hidden" id="resvType" name="resvType" value="me">
 	<input type="hidden" id="userNm" name="userNm" value="${param.userNm}">
