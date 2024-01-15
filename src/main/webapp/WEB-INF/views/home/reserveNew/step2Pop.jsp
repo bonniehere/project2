@@ -31,11 +31,6 @@
 	<% 
          MemberDTO member = (MemberDTO)session.getAttribute("login");
 	%>
-	<!-- <link type="text/css" rel="stylesheet" href="../../../../resources/css/constant01_reserve2.css">
-	
-	나중에 삭제할 예정
-	
-	 --> 
 	
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -305,16 +300,16 @@
 		<input type="hidden" id="addr" name="addr" value="">
 		<input type="hidden" id="detlAddr" name="detlAddr" value="">
 		 -->
-		 <input type="hidden" id="userType" name="userType" value="<%=member.getUserStat() %>">
-		<input type="hidden" id="resvType" name="resvType" value="me">
-		<input type="hidden" id="userNm" name="userNm" value="<%=member.getUserNm() %>">
-		<input type="hidden" id="gender" name="gender" value="<%=member.getSex() %>">
-		<input type="hidden" id="ptNo" name="ptNo" value="<%=member.getUserPw() %>"> <!-- ptNo = 환자번호 -> userPw로 대체 -->
-		<input type="hidden" id="userBirthDt" name="userBirthDt" value="<%=member.getBirthDt() %>">
-		<input type="hidden" id="phone" name="phone" value="<%=member.getTelNo() %>">
-		<input type="hidden" id="zipCd" name="zipCd" value="<%=member.getZipCd() %>">
-		<input type="hidden" id="addr" name="addr" value="<%=member.getAddr() %>">
-		<input type="hidden" id="detlAddr" name="detlAddr" value="<%=member.getDetlAddr() %>"> 
+		 <input type="hidden" id="userType" name="userType" value="${param.userType}">
+		<input type="hidden" id="resvType" name="resvType" value="${param.resvType}">
+		<input type="hidden" id="userNm" name="userNm" value="${param.userNm}">
+		<input type="hidden" id="gender" name="gender" value="${param.gender}">
+		<input type="hidden" id="ptNo" name="ptNo" value="${param.ptNo}"> <!-- ptNo = 환자번호 -> userPw로 대체 -->
+		<input type="hidden" id="userBirthDt" name="userBirthDt" value="${param.userBirthDt}">
+		<input type="hidden" id="phone" name="phone" value="${param.phone}">
+		<input type="hidden" id="zipCd" name="zipCd" value="${param.zipCd}">
+		<input type="hidden" id="addr" name="addr" value="${param.addr}">
+		<input type="hidden" id="detlAddr" name="detlAddr" value="${param.detlAddr}"> 
 		<!-- 진협 예약시 추가되는 파라메타  -->
 		<input type="hidden" id="ssnNo1" name="ssnNo1" value="">
 		<input type="hidden" id="ssnNo2" name="ssnNo2" value="">
@@ -425,7 +420,7 @@
 	                                   <li style="max-width:360px;">
 	                                   <div class="doc_info fix">
 	                                   <div class="doc_img_wrap">
-	                                   <img src="https://i.namu.wiki/i/w4VLAqUkbAbbyYsk-BF768_ff5fOhTn3nEOCIk_PJIkJljgjijKBBKujHywEecuglykghGuIKjQ8pFZGI_8VRW6vYCh2UtvbO2VSTvSotAY3WoCBiLTEy9Qg6dSlCQMIXx39lCwvMD2-IcBarSBiQA.webp" alt="박태영"></div>
+	                                   <img src="../../../../resources/img/doctor/tBZlDGmKFXrmnrnvgNEB760SIRC7IIkoDRNBNL-OPxXIYDfgk3COi43R-Msb4MRYE4Z8xO3iUbH67-dLbqB-3A.webp" alt="박태영"></div>
 	                                   <div class="doc_txt">
 	                                   <span class="doc_name" id="d1" >박태영</span>
 	                                   <span class="doc_explain">소화기질환, 췌장질환(췌장염, 췌장낭종, 췌장암), 담도질환(담석, 담낭염, 담도염, 담낭용종, 담낭암), 진단 및 치료내시경, 초음파 내시경</span></div></div>
@@ -470,7 +465,7 @@
 	                                   <li style="max-width:360px;">
 	                                   <div class="doc_info fix">
 	                                   <div class="doc_img_wrap">
-	                                   <img src="https://i.namu.wiki/i/qnERCmh_jqaEwTuYf5XdcmA-LdhcQsB9bC9mF0O6gniKShHzUifTrUYIQX4W5wTGM4sgWS4EO-qMpG3Y9brYzkEE0qgY1wt5TRrLU_zEwV0rqS7LEoRCBJ2GeVnPxwFRvSHXO-7EQyJokX6HTNO50A.webp" alt="신승용"></div>
+	                                   <img src="../../../../resources/img/doctor/ejyx1bTXl2fDssXmMWxUYHZxrZ3cNsO-saYtpD6E9Yn4nMq_zJdFvNwkxBneoKQ80ura4GW2IJD_8k3HKYIEIg.webp" alt="신승용"></div>
 	                                   <div class="doc_txt">
 	                                   <span class="doc_name" id="d2" >신승용</span>
 	                                   <span class="doc_explain">소화기질환, 대장질환(대장암, 대장용종, 크론병, 궤양성대장염, 과민성장증후군, 변비), 소장질환, 진단 및 치료내시경</span></div></div>
@@ -523,7 +518,7 @@
 	                                   <li style="max-width:360px;">
 	                                   <div class="doc_info fix">
 	                                   <div class="doc_img_wrap">
-	                                   <img src="https://i.namu.wiki/i/TZDTQsNF_BLG3-0RjR5D83CYU9fMnVb2un8DndQ__yZEtX89USUx7cyLYHyC7kpU5X_riV-fRnPB2lwPRuvUz8TsQ0hd39Q_0lhtAu2EJqQClzZiIX6ca8lCVs59v3Y0W3wkke_ZicUK416UjP6bHw.webp" alt="김은주"></div>
+	                                   <img src="../../../../resources/img/doctor/IztTwScLCcbdgk0k6N0w8LXyAe1u_nffNR6aq6axCepTsrkmzNladqTQkX0oKpOY3M9-f30Bgh1VaY-88L7tsg.webp" alt="김은주"></div>
 	                                   <div class="doc_txt"><span class="doc_name">김은주</span>
 	                                   <span class="doc_explain">소화기질환, 간질환(급/만성간염, 지방간, 간경변증, 간세포암), 진단 및 치료내시경, 간이식</span></div></div>
 	                                   <div class="sche_table_wrap">
@@ -562,7 +557,7 @@
 	                                   <li style="max-width:360px;">
 	                                   <div class="doc_info fix">
 	                                   <div class="doc_img_wrap">
-	                                   <img src="https://i.namu.wiki/i/xw7Zoq9DZqL5XS9FswFk9U9GqLrwTH-8GtC5QzMT7kVDx6fVIQ6_mOnoYccEjfeI7tY8zHaLQiNzE7zlvw1epYCC7wofXoEI7mvkq4ZBsSOjiAZBTryC96W5HvtwTRwZLNzzMl_QK96ej192VKeXWg.webp" alt="문정민"></div>
+	                                   <img src="../../../../resources/img/doctor/Xx0SD9hh27UW4k8vptnYJ0M5cG4AZjcXHcZ35YOy-N8XHO_3uKHXqFuzYgi2jAfPBg9J4e8XNyoFQ8SlAgzlYA.webp" alt="문정민"></div>
 	                                   <div class="doc_txt"><span class="doc_name">문정민</span>
 	                                   <span class="doc_explain">소화기질환, 대장질환(대장암, 대장용종, 크론병, 궤양성대장염, 과민성장증후군, 변비), 소장질환, 진단 및 치료내시경</span></div></div>
 	                                   <div class="sche_table_wrap">
@@ -598,7 +593,7 @@
 	                                   -->
 	                                   </div></li>
 	                                   <li style="max-width:360px;"><div class="doc_info fix"><div class="doc_img_wrap">
-	                                   <img src="https://i.namu.wiki/i/_CjkP-3Z0HiQYzyr6o9KxVk4w-8LtWboCLsU-WvaxFcXvJjQ0GnLHSFL8rMbQek07TpWUM0mXKvpIu0eeQsYjSXooPxQtYupj6BRVvu_4465UCCVIye7BhfL1h5F802sQAjzRbwf8mZNIFQUH7SOEw.webp" alt="김상훈"></div><div class="doc_txt"><span class="doc_name">김상훈</span>
+	                                   <img src="../../../../resources/img/doctor/YstnT6LLDLhWVuUrpJRCDMYAsprwL9yyv0JKlstohLIXvBdqNmQW4pu9H5kXY0N2gvzdfEFjzBLx-V2csLUsYQ.webp" alt="김상훈"></div><div class="doc_txt"><span class="doc_name">김상훈</span>
 	                                   <span class="doc_explain">위질환 (위염, 위선종, 위암, 점막하종양, 기능성 소화불량증), 식도질환 (역류성식도질환, 식도암), 초음파내시경, 치료내시경</span></div></div>
 	                                   <div class="sche_table_wrap">
 	                                   <table>
@@ -634,7 +629,7 @@
 	                                   </div></li>
 	                                   <li style="max-width:360px;"><div class="doc_info fix">
 	                                   <div class="doc_img_wrap">
-	                                   <img src="https://i.namu.wiki/i/-JxwcNdB78kDNjsxZC4OQXrOe8V_IysWqf7tXWR7Bnab-1tNe95IRjnJGCnGbZ2DVYCHnrTT5QGdMoiBI0LcyFDUz615xUnkcmoyB9AjwpPBchXCoy0VwNDpdaGFq5_ehuL_nZKRFhIRNDrhxsgoag.webp" alt="김종혁"></div>
+	                                   <img src="../../../../resources/img/doctor/ZsOSa9eO3N4Muc4W4hBAvBUG33AEvnPWIJUv63SbXp2tsU7Upe5z4Jp-hOI0S_PMn79XPHvmiXx4AtxN3OwZbg.webp" alt="김종혁"></div>
 	                                   <div class="doc_txt">
 	                                   <span class="doc_name">김종혁</span>
 	                                   <span class="doc_explain">소화기질환, 췌장질환(췌장염, 췌장낭종, 췌장암), 담도질환(담석, 담낭염, 담도염, 담낭용종, 담낭암), 진단 및 치료내시경, 초음파 내시경</span>
@@ -673,7 +668,7 @@
 	                                   <li style="max-width:360px;">
 	                                   <div class="doc_info fix">
 	                                   <div class="doc_img_wrap">
-	                                   <img src="https://i.namu.wiki/i/6ET-fPTbLTdCZNRtXcp8gkbcejXaL6dVcF3Przfdy8Tc09aFogR9vDoLHOU-qrDiersXKr-s4vFGCPmTlBDMkt0ZYEiOjiiEEAfdgiUoHB0U2FBdBUqpBCA2HIzDNRYO0AcvPjBqQ-awHirQIpUi4Q.webp" alt="장정인"></div>
+	                                   <img src="../../../../resources/img/doctor/QqluvcSXj7sGwiNrS8Thsyr_iK9zeA3_ZF9zsbMla3aZBh9mus6X-cGoXyMz7vE3cyHp1JBswBA7GjZDWMO51g.webp" alt="장정인"></div>
 	                                   <div class="doc_txt">
 	                                   <span class="doc_name">장정인</span>
 	                                   <span class="doc_explain">소화기질환, 간질환(급/만성간염, 지방간, 간경변증, 간세포암), 진단 및 치료내시경, 간이식</span></div></div>

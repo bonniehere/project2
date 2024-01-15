@@ -251,19 +251,6 @@
 	<input type="hidden" id="resv_flag" name="resv_flag" value="HOME">
 
 
-	
-	<!-- 안쓸래잉 
-	
-	얘는 값이 다 동일한 것 같음
-	
-	<input type="hidden" id="ssnNo1" name="ssnNo1" value="">
-	<input type="hidden" id="ssnNo2" name="ssnNo2" value="">
-	<input type="hidden" id="Corporal" name="Corporal" value="XN8x0/F+JOcNzB3hJWkyaw==">
-	<input type="hidden" id="memo" name="memo" value="XN8x0/F+JOcNzB3hJWkyaw==">
-	<input type="hidden" id="returnContYN" name="returnContYN" value="">
-	<input type="hidden" id="refer_resvYN" name="refer_resvYN" value="N">
-	<input type="hidden" id="resv_flag" name="resv_flag" value="HOME">
-	-->
 
 
 	<!-- 진료과 정보 -->

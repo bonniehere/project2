@@ -1,10 +1,15 @@
 package com.constant01.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.constant01.model.ReserveDTO;
 import com.constant01.model.MapDTO;
@@ -129,15 +134,21 @@ public class ReserveController {
 		return "home/reserveNew/map3";
 	
 	}
-	@RequestMapping(value = "home/reserveNew/map3.do", method = RequestMethod.GET)
-	public String map33(MapDTO map,Model model) {
+	@ResponseBody
+	/*
+	@RequestMapping(value = "home/reserveNew/UserLocLoad.do", method = RequestMethod.POST)
+	public String UserLocLoad(MapDTO map,Model model) {
 		
 		model.addAttribute("maplist", rs.maplist(map));
 		System.out.println(rs.maplist(map));
 		return "home/reserveNew/map3";
 	
 	}
+	*/
+	@RequestMapping(value = "home/reserveNew/UserLocLoad.do", method = RequestMethod.POST)
+	public ResponseEntity<?> UserLocLoad(MapDTO map, Model model, HttpSession session) {
+		return new ResponseEntity<>(rs.maplist(map), HttpStatus.OK);
 	
-	
+	}
 
 }
