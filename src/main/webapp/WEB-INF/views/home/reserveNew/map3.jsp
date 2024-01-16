@@ -1676,7 +1676,6 @@ function autoChase(){
 	         
 	           // 마커와 인포윈도우를 표시합니다
 	           displayMarker(locPosition, message);
-			//술먹어서 생각이안남 함수발동을 위한 트리거
 		},
 		error:function(request,status,error){
 			console.log("실패");
